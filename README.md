@@ -4,7 +4,7 @@ Modest is a utilty for creating, previewing, and compiling modular xhtml.
 
 ###Installation
 
-To install, you don't need to download any of the files here; just install node.js and then use npm to install modest.
+To install, you don't need to download any of the files here; just install node.js and then use npm (node package manager) to install modest.
 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
