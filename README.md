@@ -1,6 +1,6 @@
 #Modest
 
-Modest is a utilty for creating, previewing, and compiling modular xhtml.
+Modest is a utilty for creating, previewing, and compiling modular xhtml.  It can also be used in javascript to generate xhtml according to module definitions.
 
 ###Installation
 
