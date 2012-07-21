@@ -24,5 +24,9 @@
   "preferGlobal" : true,
   "scripts" : {
     "test" : "vows test"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/sweedl/modest.git"
   }
 }
