@@ -11,8 +11,6 @@ To install, you don't need to download any of the files here; just install node.
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
 
-Once installed, 'modest' should be runnable from a command prompt.
-
 ###Usage
 
 From a command prompt, type
