@@ -7,6 +7,9 @@
     "name" : "Adam Stallard",
     "company" : "sweedl"
   },
+  "directories" : {
+    "test" : "test"
+  },
   "bin" : "modest.js",
   "dependencies" : {
     "async" : "*",
@@ -23,10 +26,13 @@
   },
   "preferGlobal" : true,
   "scripts" : {
-    "test" : "vows test"
+    "test" : "node_modules/vows/bin/vows test/*.js"
   },
   "repository" : {
     "type" : "git",
     "url" : "https://github.com/sweedl/modest.git"
+  },
+  "bugs" : {
+    "url" : "https://github.com/sweedl/modest/issues"
   }
 }
