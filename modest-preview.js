@@ -18,9 +18,9 @@ modest = this.modest || {
   },
   loadModules : function(){
     var includes = document.getElementsByTagName('head')[0].getElementsByTagName('include');
-    var path, pathAttr, moduleName, moduleContent;
+    var path, pathAttr, moduleName, moduleContent, i;
 
-    for(var i = 0; i < includes.length; ++i){
+    for(i = 0; i < includes.length; ++i){
       
       // Assume the include tag has a single text node with the name of the module
       
@@ -77,12 +77,13 @@ modest = this.modest || {
     var dependencies = {};
     var compiledCount = 0;
     var numModules = 0;
-    var waitToCompile, module, otherModule, lastCompiledCount;
+    var waitToCompile, module, otherModule, lastCompiledCount, d;
 
     function loopError(){
       var badModules = '';
+      var module;
       
-      for (var module in modest.$uncompiled){       
+      for (module in modest.$uncompiled){       
         if(!modest.compiled[module])
           badModules += module + ' ';       
       }
@@ -124,7 +125,7 @@ modest = this.modest || {
         }    
         waitToCompile = false;
 
-        for (var d in dependencies[module]){       
+        for (d in dependencies[module]){       
           if(!modest.compiled[dependencies[module][d]]){
             waitToCompile = true;
             break;
@@ -149,7 +150,7 @@ modest = this.modest || {
       // find and compile module instances in the template
       
       $template.find(module).each(function(){
-        modest.compile($(this),module,true);
+        modest.compile($(this),module);
       });   
     });  
     
@@ -199,9 +200,9 @@ modest = this.modest || {
   },
   html : function(module,parameters){
     var $instance = $('<' + module + '>');
-    var paramEl;
+    var paramEl, param;
     
-    for (var param in parameters){
+    for (param in parameters){
       paramEl = document.createElement(param);
       paramEl.innerHTML = parameters[param];
       $instance.append(paramEl);
