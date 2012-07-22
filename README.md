@@ -24,3 +24,14 @@ From a command prompt, type
 ###Javascript Projects
 
 If used in javascript, modest depends on [jquery](http://jquery.com).  Modest works well with [underscore](https://github.com/documentcloud/underscore) and [backbone](https://github.com/documentcloud/backbone).
+
+####Development How-To
+
+Change directories into your local clone and type
+
+    npm install
+
+to get the node.js dependencies.  After you make your changes, please add references to your tests to tests/all.js.  The tests use [vows](http://vowsjs.org).  Make sure the tests still pass by running
+
+    npm test
+

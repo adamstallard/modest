@@ -1,8 +1,8 @@
 {
   "name" : "modest",
-  "version" : "1.0.2",
+  "version" : "1.0.6",
   "description" : "Modest is a utilty for creating, previewing, and compiling modular xhtml.",
-  "keywords" : ["xhtml","html","template","preview","utility","tags","modules","browser","javascript"],
+  "keywords" : ["xhtml","html","template","preview","modular","tags","modules","browser"],
   "author" : {
     "name" : "Adam Stallard",
     "company" : "sweedl"
@@ -26,7 +26,7 @@
   },
   "preferGlobal" : true,
   "scripts" : {
-    "test" : "node_modules/vows/bin/vows test/*.js"
+    "test" : "node node_modules/vows/bin/vows test/all.js --spec"
   },
   "repository" : {
     "type" : "git",
