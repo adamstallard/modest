@@ -1,12 +1,11 @@
-##Modest
+##Modest 
+(__mo__dular __des__ign __t__emplates)
 
-__Modest__ is a utilty for creating, previewing, and compiling modular xhtml.
-
-It can also be used in javascript to generate xhtml according to module definitions.
+Templating language for modular, reusable html--keeping a clean separation between html and javascript.
 
 ###Installation
 
-To install, you don't need to download any of the files here; just install node.js and then use npm (node package manager) to install modest.
+Modest is a command-line program that depends on node.js.  You don't need to download any of the files here; just install node.js and then use npm (node package manager) to install modest.
 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
