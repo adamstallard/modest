@@ -46,6 +46,6 @@ vows.describe('ModestCompiler')
   "Setup: " : setupTopics
 })
 .addBatch({
-  "A ModestCompiler" : compilerTopics
+  "ModestCompiler" : compilerTopics
 })
 .export(module);
