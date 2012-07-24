@@ -10,13 +10,14 @@ var async = require('async');
 var _ = require('underscore');
 
 function ModestCompiler(params){
-  this.params = params;
+  this.params = params || {};
   this.scripts = [];
+  this.path = '';
   if(this.params.jqueryPath)
     this.scripts.push(this.params.jqueryPath);
   else
     $ = require('jquery');
-  require('./' + this.params.previewScript);
+  require('./' + (this.params.previewScript || 'modest-preview.js'));
   _.bindAll(this);
 }
 
@@ -29,7 +30,8 @@ ModestCompiler.prototype = {
     modest.reset();
   },
   compileFile : function(file,callback){
-    console.log('compiling ' + this.path + file);
+    if(!this.params.quiet)
+      console.log('compiling ' + this.path + file);
     jsdom.env(file,
     this.scripts,
     function(errors, window) {

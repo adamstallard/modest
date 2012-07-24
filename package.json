@@ -1,6 +1,6 @@
 {
   "name" : "modest",
-  "version" : "1.0.6",
+  "version" : "1.0.7",
   "description" : "Modest is a utilty for creating, previewing, and compiling modular xhtml.",
   "keywords" : ["xhtml","html","template","preview","modular","tags","modules","browser"],
   "author" : {
@@ -26,7 +26,7 @@
   },
   "preferGlobal" : true,
   "scripts" : {
-    "test" : "node node_modules/vows/bin/vows test/all.js --spec"
+    "test" : "node test/all.js"
   },
   "repository" : {
     "type" : "git",

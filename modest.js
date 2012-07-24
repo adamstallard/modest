@@ -16,6 +16,10 @@ var optimist = require('optimist')
   "j" : {
     alias : "jquery",
     describe : "Path to (or URL of) jquery.  If omitted, modest will use the npm jquery module."
+  },
+  "q" : {
+    alias : "quiet",
+    describe : "Supress output."
   }
 })
 .alias('?','help')
@@ -61,6 +65,7 @@ if(argv.h || argv['?']){
 
 params = {
   jqueryPath : argv.j,
+  quiet : argv.q,
   previewScript : 'modest-preview.js'
 };
 
