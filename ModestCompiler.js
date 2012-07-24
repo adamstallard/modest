@@ -113,17 +113,16 @@ ModestCompiler.prototype = {
     } 
   },
   compileFiles : function(){
-    var f, files;
     var compile = [];
+
+    // compile all the files that contain '-pre.' or end in '-pre'
     
-    files = fs.readdirSync(this.path);
-
+    _.each(fs.readdirSync(this.path), function(f){
+      if(/-pre(?:\.|$)/.test(f))
+        compile.push(async.apply(this.compileFile, f));
+    });
+    
     // compile the files in series so dependency detection works
-
-    for (f in files){
-      if(files[f].indexOf('-pre.') != -1 || files[f].indexOf('-pre') - files[f].length == 4)
-        compile.push(async.apply(this.compileFile, files[f]));
-    }
     
     async.series(compile,function(err){
       if(err)

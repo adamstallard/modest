@@ -10,15 +10,33 @@ var compilerTopics = {
   topic : new ModestCompiler({quiet : true})
 };
 var setupTopics = {};
-var numCompilerTestFiles = 1;
+var numTestFiles = 1;
+var testFiles = [];
 
 process.chdir(__dirname);
 process.chdir('compiler-test-files');
 
-_.each(_.range(1,numCompilerTestFiles+1),function(i){
-  var testFile = i + '-pre.xhtml';
-  var outFile = i + '.xhtml';
-  var keyFile = i + '-key.xhtml';
+_.each(fs.readdirSync('.'), function(f){
+  var baseName = f.match(/(.+)-key\.xhtml/);
+  if(baseName && baseName[1])
+    testFiles.push(baseName[1]);
+});
+
+_.each(testFiles,function(f){
+  var testFile = f + '-pre.xhtml';
+  var outFile = f + '.xhtml';
+  var keyFile = f + '-key.xhtml';
+  var descFile = f + '.txt';
+  var topicName = 'compiling test file ' + testFile;
+  
+  var description;
+  try{
+    description = fs.readFileSync(descFile,'utf8');
+    if(description)
+      topicName = 'compiling ' + description;
+  } catch(e){
+  }
+  
   setupTopics['deleting output file ' + outFile] = {
     topic : function(){
       fs.unlinkSync(outFile);
@@ -28,7 +46,7 @@ _.each(_.range(1,numCompilerTestFiles+1),function(i){
       assert(!_.contains(fs.readdirSync('.'),outFile),'file exists');
     }
   };
-  compilerTopics['compiling test file ' + testFile] = {
+  compilerTopics[topicName] = {
     topic : function(mc){
       mc.compileFile(testFile,this.callback);
     },
