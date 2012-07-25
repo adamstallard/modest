@@ -8,6 +8,7 @@
 var fs = require('fs');
 
 var _ = require('underscore');
+var async = require('async');
 
 var ModestCompiler = require('./ModestCompiler');
 
@@ -37,7 +38,7 @@ var optimist = require('optimist')
   1. Places a copy of "modest-preview.js" for generating previews.\n\
   2. Compiles all files ending with -pre (plus an optional extension). The output files have the\n\
       same names as the input files, but with the "-pre" removed.\n\
-  3. If one or more modules need to be available in javascript, creates a "modest.js" containing\n\
+  3. If one or more modules needs to be available in javascript, creates a "modest.js" containing\n\
       the compiled modules and code needed to support them.  Supported modules are shared by the\n\
       files in the same directory, i.e. there is one "modest.js" file per directory.\n\
   \n\
@@ -45,8 +46,6 @@ var optimist = require('optimist')
 );
 
 var argv = optimist.argv;
-var dirs = argv._;
-var compiler, params;
 
 if(_.isBoolean(argv.j)){
   optimist.showHelp(console.log);
@@ -69,14 +68,32 @@ params = {
   previewScript : 'modest-preview.js'
 };
 
+var compiler = new ModestCompiler(params);
+var dirs = argv._;
+var series = [];
+var origPath = process.cwd();
+
 if(_.isEmpty(dirs))
   dirs.push('.');
 
-compiler = new ModestCompiler(params);
+// Compile each directory in series, so we can reuse the same compiler
 
 _.each(dirs, function(path){
-  path = path.replace(/^\s+/, '').replace(/[\/\\\s]+$/,'') + '/';
-  fs.link(__dirname + '/' + params.previewScript, path + params.previewScript);
-  compiler.setPath(path);
-  compiler.compileFiles();
+  series.push(function(callback){
+    process.chdir(origPath);
+    if(!params.quiet)
+      console.log('entering ' + path);
+    process.chdir(path);
+    fs.link(__dirname + '/' + params.previewScript, params.previewScript);
+    compiler.compileFiles(callback);
+  });
 });
+
+async.series(series,function(err){
+  if(err)
+    throw(err);
+  else
+    process.chdir(origPath);
+});
+
+

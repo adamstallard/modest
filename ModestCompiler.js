@@ -12,7 +12,6 @@ var _ = require('underscore');
 function ModestCompiler(params){
   this.params = params || {};
   this.scripts = [];
-  this.path = '';
   if(this.params.jqueryPath)
     this.scripts.push(this.params.jqueryPath);
   else
@@ -22,16 +21,12 @@ function ModestCompiler(params){
 }
 
 ModestCompiler.prototype = {
-  setPath : function(path){
-    this.path = path;
-    this.resetModest();
-  },
   resetModest : function(){
     modest.reset();
   },
   compileFile : function(file,callback){
     if(!this.params.quiet)
-      console.log('compiling ' + this.path + file);
+      console.log('\tcompiling ' + file);
     jsdom.env(file,
     this.scripts,
     function(errors, window) {
@@ -42,7 +37,7 @@ ModestCompiler.prototype = {
       else {
         try{
           modest.setWindow(window);
-          modest.loadModules();
+          modest.loadModules(process.cwd());
           modest.compileModules();
           modest.compileNode($(document.body));
 
@@ -79,7 +74,7 @@ ModestCompiler.prototype = {
           // write the compiled xhtml out to a file (minus the '-pre')
 
           output = window.document.innerHTML.replace(/\s+/g,' ');
-          fs.writeFileSync(this.path + file.replace(/-pre(\..+)?$/,'$1'),output);
+          fs.writeFileSync(file.replace(/-pre(\..+)?$/,'$1'),output);
         }
         catch(e){
           callback(e);
@@ -109,26 +104,32 @@ ModestCompiler.prototype = {
 
       // Write the saved modules and the modest object to modest.js
 
-      fs.writeFileSync(this.path + 'modest.js', modestJs + savedModules);
+      fs.writeFileSync('modest.js', modestJs + savedModules);
     } 
   },
-  compileFiles : function(){
-    var compile = [];
-
+  compileFiles : function(callback){
+    var files = fs.readdirSync('.');
+    var toCompile = [];
+    
+    // clear out any existing modules
+    
+    this.resetModest();
+    
     // compile all the files that contain '-pre.' or end in '-pre'
     
-    _.each(fs.readdirSync(this.path), function(f){
+    _.each(files, function(f){
       if(/-pre(?:\.|$)/.test(f))
-        compile.push(async.apply(this.compileFile, f));
-    });
+        toCompile.push(async.apply(this.compileFile, f));
+    }.bind(this));
     
     // compile the files in series so dependency detection works
     
-    async.series(compile,function(err){
+    async.series(toCompile,function(err){
       if(err)
         throw(err);
       else
         this.writeModestJs();
+      callback(err);
     }.bind(this));
   }
 };

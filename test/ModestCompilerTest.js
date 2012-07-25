@@ -10,7 +10,6 @@ var compilerTopics = {
   topic : new ModestCompiler({quiet : true})
 };
 var setupTopics = {};
-var numTestFiles = 1;
 var testFiles = [];
 
 process.chdir(__dirname);

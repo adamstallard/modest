@@ -1,11 +1,12 @@
 {
   "name" : "modest",
-  "version" : "1.0.8",
+  "version" : "1.1.0",
   "description" : "Modest is a utilty for creating, previewing, and compiling modular xhtml.",
   "keywords" : ["xhtml","html","template","preview","modular","tags","modules","browser"],
   "author" : {
     "name" : "Adam Stallard",
-    "company" : "sweedl"
+    "email" : "adam@sweedl.com",
+    "url" : "sweedl.com"
   },
   "directories" : {
     "test" : "test"
