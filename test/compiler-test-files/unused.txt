@@ -1,0 +1,1 @@
+a test with a module with an unused parameter
