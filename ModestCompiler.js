@@ -30,7 +30,7 @@ ModestCompiler.prototype = {
     jsdom.env(file,
     this.scripts,
     function(errors, window) {
-      var script, head, includes, previewScriptTags, output;
+      var script, head, includes, previewScriptTags, output, $body;
 
       if(errors)
         callback(errors);
@@ -39,7 +39,10 @@ ModestCompiler.prototype = {
           modest.setWindow(window);
           modest.loadModules(process.cwd());
           modest.compileModules();
-          modest.compileNode($(document.body));
+          
+          $body = $(document.body);
+          modest.compileNode($body);
+          modest.clean($body);
 
           // remove the modest includes
 

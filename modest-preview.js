@@ -194,6 +194,12 @@ modest = this.modest || {
     });
 
   },
+  clean : function($node){
+    
+    // remove 'uses' attributes
+    
+    $node.find('[uses]').removeAttr('uses');
+  },
   html : function(module,parameters){
     var $instance = $('<' + module + '>');
     var paramEl, param;
@@ -205,6 +211,7 @@ modest = this.modest || {
     }
     
     modest.compileInstance($instance,module);
+    modest.clean($instance);
     return $instance[0].outerHTML;
   }
 };
