@@ -5,6 +5,7 @@ var vows = require('vows');
 var _ = require('underscore');
 
 var ModestCompiler = require('../ModestCompiler');
+var normalize = ModestCompiler.normalize;
 
 var compilerTopics = {
   topic : new ModestCompiler({quiet : true})
@@ -52,7 +53,7 @@ _.each(testFiles,function(f){
     "should produce the expected output" : function(e){
       assert.ifError(e);
       var output = fs.readFileSync(outFile,'utf8');
-      var key = fs.readFileSync(keyFile,'utf8').replace(/\s+/g,' ');
+      var key = ModestCompiler.normalize(fs.readFileSync(keyFile,'utf8'));
       assert(output == key, outFile + ' did not match ' + keyFile);
     }
   };

@@ -144,3 +144,4 @@ function normalize(string){
 }
 
 module.exports = ModestCompiler;
+module.exports.normalize = normalize;
