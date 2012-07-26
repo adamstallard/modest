@@ -183,9 +183,9 @@ modest = this.modest || {
         if(eq === -1){
           if(usesParameters[uses[u]])
             $target.attr('uses',usesParameter[uses[u]]);
-          else if(parameters[uses[u]]){
-            $target.html(parameters[uses[u]]).addClass(uses[u]);
-          }         
+          else if(parameters[uses[u]])
+            $target.html(parameters[uses[u]]);
+          $target.addClass(uses[u]);         
         }
         else {
           attr = uses[u].slice(0,eq);
