@@ -64,15 +64,6 @@ modest = this.modest || {
     }
     
   },
-  compileNode : function($node,modules){  
-    if(!modules)
-      modules = modest.compiled;  
-    modest.compileTemplate($node,modules);
-    
-    // Clean up: remove 'uses' attributes
-    
-    $node.find('[uses]').removeAttr('uses');
-  },
   compileModules : function(){
     var dependencies = {};
     var compiledCount = 0;
@@ -93,7 +84,7 @@ modest = this.modest || {
 
     function compileModule(module){
       var $module = modest.$uncompiled[module];
-      modest.compileTemplate($module, dependencies[module]);
+      modest.compileNode($module, dependencies[module]);
       if($module[0].outerHTML)
         modest.modules[module] = $module[0].outerHTML;
       else
@@ -143,24 +134,25 @@ modest = this.modest || {
     }
     
   },
-  compileTemplate : function($template, modules){  
+  compileNode : function($node, modules){  
+    if(!modules)
+      modules = modest.compiled;
+    
+    // find and compile module instances within the node
     
     $.each(modules, function(i,module){ 
-      
-      // find and compile module instances in the template
-      
-      $template.find(module).each(function(){
-        modest.compile($(this),module);
+      $node.find(module).each(function(){
+        modest.compileInstance($(this),module);
       });   
     });  
     
   },
   //#!REMOVE-POST-COMPILE
-  compile : function($instance,module){   
+  compileInstance : function($instance,module){   
     var parameters = {};
     var usesParameters = {}; 
     
-    // read the parameters from the instance
+    // get tne instance parameters
 
     $instance.children().each(function(){
       var param = this;   
@@ -169,10 +161,14 @@ modest = this.modest || {
         usesParameters[param.tagName.toLowerCase()] = param.innerHTML;
     });
     
+    // replace the instance with the module
+    
     $instance.html(modest.modules[module]);
     $instance = $instance.children(':first').unwrap();
     $instance.addClass(module);
-
+    
+    // replace the module parameters with the instance parameters
+    
     $instance.find('[uses]').each(function(){
       var $target = $(this);
       var uses = $target.attr('uses').toLowerCase().split(' ');
@@ -208,7 +204,7 @@ modest = this.modest || {
       $instance.append(paramEl);
     }
     
-    modest.compile($instance,module);
+    modest.compileInstance($instance,module);
     return $instance[0].outerHTML;
   }
 };

@@ -73,7 +73,7 @@ ModestCompiler.prototype = {
                    
           // write the compiled xhtml out to a file (minus the '-pre')
 
-          output = window.document.innerHTML.replace(/\s+/g,' ');
+          output = normalize(window.document.innerHTML);
           fs.writeFileSync(file.replace(/-pre(\..+)?$/,'$1'),output);
         }
         catch(e){
@@ -91,7 +91,7 @@ ModestCompiler.prototype = {
     var savedModules = '';
 
     for (module in modest.saveAsJs){
-      moduleDefinition = modest.modules[module].replace(/\s+/g,' ') + "';\n";
+      moduleDefinition = normalize(modest.modules[module]) + "';\n";
       savedModules += 'modest.modules.' + module + " = '" + moduleDefinition;
     }
 
@@ -137,6 +137,10 @@ ModestCompiler.prototype = {
 function insertAfter(referenceNode, newNode)
 {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function normalize(string){
+  return string.replace(/[\r|\n]/g,'').replace(/ +/g,' ');
 }
 
 module.exports = ModestCompiler;
