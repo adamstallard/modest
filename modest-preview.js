@@ -158,7 +158,7 @@ modest = this.modest || {
       var param = this;   
       parameters[param.tagName.toLowerCase()] = param.innerHTML;
       if(param.hasAttribute('uses'))
-        usesParameters[param.tagName.toLowerCase()] = param.innerHTML;
+        usesParameters[param.tagName.toLowerCase()] = param.getAttribute('uses').toLowerCase();
     });
     
     // replace the view with the module
@@ -169,7 +169,7 @@ modest = this.modest || {
     
     // inject the parameters
     
-    $view.find('[uses]').each(function(){
+    $view.find('*').not('[uses=""]').each(function(){
       var $target = $(this);
       var uses = $target.attr('uses').toLowerCase().split(' ');
       var eq, param, u, attr;
@@ -179,10 +179,13 @@ modest = this.modest || {
         if(eq === -1){
           $target.addClass(uses[u]);
           if(usesParameters[uses[u]])
-            $target.attr('uses',usesParameter[uses[u]]);
+            $target.attr('uses',usesParameters[uses[u]]);
           else if(parameters[uses[u]]!==undefined)
             $target.html(parameters[uses[u]]);
-          else $target.remove();
+          else {
+
+            $target.remove();
+          }
         }
         else {
           attr = uses[u].slice(0,eq);
@@ -191,7 +194,7 @@ modest = this.modest || {
             $target.attr(attr,parameters[param]);
         }
       }
-      
+
     });
 
   },

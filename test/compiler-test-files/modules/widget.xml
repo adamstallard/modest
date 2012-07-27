@@ -1,0 +1,8 @@
+<div>
+  <h2>widget</h2>
+  <p uses="name"/>
+  <h2>owner</h2>
+  <person>
+    <name uses="owner"/>
+  </person>
+</div>
