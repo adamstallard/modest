@@ -169,7 +169,7 @@ modest = this.modest || {
     
     // inject the parameters
     
-    $view.find('*').not('[uses=""]').each(function(){
+    $view.find('[uses]').not('[uses=""]').each(function(){
       var $target = $(this);
       var uses = $target.attr('uses').toLowerCase().split(' ');
       var eq, param, u, attr;
@@ -182,10 +182,8 @@ modest = this.modest || {
             $target.attr('uses',usesParameters[uses[u]]);
           else if(parameters[uses[u]]!==undefined)
             $target.html(parameters[uses[u]]);
-          else {
-
+          else
             $target.remove();
-          }
         }
         else {
           attr = uses[u].slice(0,eq);
