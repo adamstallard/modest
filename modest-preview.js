@@ -177,11 +177,12 @@ modest = this.modest || {
       for(u = 0; u < uses.length; ++u){
         eq = uses[u].indexOf('=');
         if(eq === -1){
+          $target.addClass(uses[u]);
           if(usesParameters[uses[u]])
             $target.attr('uses',usesParameter[uses[u]]);
-          else if(parameters[uses[u]])
+          else if(parameters[uses[u]]!==undefined)
             $target.html(parameters[uses[u]]);
-          $target.addClass(uses[u]);         
+          else $target.remove();
         }
         else {
           attr = uses[u].slice(0,eq);
