@@ -138,38 +138,38 @@ modest = this.modest || {
     if(!modules)
       modules = modest.compiled;
     
-    // find and compile module instances within the node
+    // find and compile module views within the node
     
     $.each(modules, function(i,module){ 
       $node.find(module).each(function(){
-        modest.compileInstance($(this),module);
+        modest.compileView($(this),module);
       });   
     });  
     
   },
   //#!REMOVE-POST-COMPILE
-  compileInstance : function($instance,module){   
+  compileView : function($view,module){   
     var parameters = {};
     var usesParameters = {}; 
     
-    // get tne instance parameters
+    // get the view's parameters
 
-    $instance.children().each(function(){
+    $view.children().each(function(){
       var param = this;   
       parameters[param.tagName.toLowerCase()] = param.innerHTML;
       if(param.hasAttribute('uses'))
         usesParameters[param.tagName.toLowerCase()] = param.innerHTML;
     });
     
-    // replace the instance with the module
+    // replace the view with the module
     
-    $instance.html(modest.modules[module]);
-    $instance = $instance.children(':first').unwrap();
-    $instance.addClass(module);
+    $view.html(modest.modules[module]);
+    $view = $view.children(':first').unwrap();
+    $view.addClass(module);
     
-    // replace the module parameters with the instance parameters
+    // inject the parameters
     
-    $instance.find('[uses]').each(function(){
+    $view.find('[uses]').each(function(){
       var $target = $(this);
       var uses = $target.attr('uses').toLowerCase().split(' ');
       var eq, param, u, attr;
@@ -194,25 +194,19 @@ modest = this.modest || {
     });
 
   },
-  clean : function($node){
-    
-    // remove 'uses' attributes
-    
-    $node.find('[uses]').removeAttr('uses');
-  },
   html : function(module,parameters){
-    var $instance = $('<' + module + '>');
+    var $view = $('<' + module + '>');
     var paramEl, param;
     
     for (param in parameters){
       paramEl = document.createElement(param);
       paramEl.innerHTML = parameters[param];
-      $instance.append(paramEl);
+      $view.append(paramEl);
     }
     
-    modest.compileInstance($instance,module);
-    modest.clean($instance);
-    return $instance[0].outerHTML;
+    modest.compileView($view,module);
+    $view.find('[uses]').removeAttr('uses');
+    return $view[0].outerHTML;
   }
 };
 //#REMOVE-POST-COMPILE

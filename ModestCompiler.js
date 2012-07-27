@@ -42,7 +42,7 @@ ModestCompiler.prototype = {
           
           $body = $(document.body);
           modest.compileNode($body);
-          modest.clean($body);
+          $body.find('[uses]').removeAttr('uses');
 
           // remove the modest includes
 
