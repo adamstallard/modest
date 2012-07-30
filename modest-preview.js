@@ -174,7 +174,7 @@ modest = this.modest || {
     
     // handle parameter targets in the root element
     
-    if($view.attr('uses').length !== 0)
+    if($view.attr('uses'))
       $targets = $view.add($targets);
     
     // inject the parameters
