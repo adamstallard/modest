@@ -182,7 +182,6 @@ modest = this.modest || {
     $targets.each(function(){
       var $target = $(this);
       var uses = $target.attr('uses').toLowerCase().split(' ');
-      console.dir(uses);
       var eq, param, u, attr;
 
       for(u = 0; u < uses.length; ++u){
