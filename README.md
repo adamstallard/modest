@@ -25,7 +25,7 @@ From a command prompt, type
 
 ###Use in Javascript
 
-If used in javascript, modest depends on [jquery](http://jquery.com).  Modest works well as the templating engine for [backbone.js](https://github.com/documentcloud/backbone).
+If used with javascript, modest depends on [jquery](http://jquery.com).  Modest works well as the templating engine for [backbone.js](https://github.com/documentcloud/backbone).
 
 ###Development How-To
 
