@@ -1,14 +1,17 @@
 ##Modest 
 (__mo__dular __des__ign __t__emplates)
 
-Templating language for modular, reusable html--keeping a clean separation between html and javascript.
+Templating language for modular, reusable html, with a clean separation between html and javascript.
 
 ###Installation
 
-Modest is a command-line program that depends on node.js.  You don't need to download any of the files here; just install node.js and then use npm (node package manager) to install modest.
+Just install node.js on your development machine and then use npm (node package manager) to install modest.  Then you can run ``modest`` from the command line.
+
+You don't need to download any of the files here, and you don't need to use node.js in any other part of your project.  
 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
+3. ``modest --help``
 
 ###Usage
 
@@ -22,7 +25,7 @@ From a command prompt, type
 
 ###Use in Javascript
 
-If used in javascript, modest depends on [jquery](http://jquery.com).  Modest works well with [underscore](https://github.com/documentcloud/underscore) and [backbone](https://github.com/documentcloud/backbone).
+If used in javascript, modest depends on [jquery](http://jquery.com).  Modest works well as the templating engine for [backbone.js](https://github.com/documentcloud/backbone).
 
 ###Development How-To
 
