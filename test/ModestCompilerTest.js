@@ -28,7 +28,6 @@ _.each(testFiles,function(f){
   var keyFile = f + '-key.xhtml';
   var descFile = f + '.txt';
   var topicName = 'compiling test file ' + testFile;
-  
   var description;
   try{
     description = fs.readFileSync(descFile,'utf8');
@@ -36,7 +35,6 @@ _.each(testFiles,function(f){
       topicName = 'compiling ' + description;
   } catch(e){
   }
-  
   setupTopics['deleting output file ' + outFile] = {
     topic : function(){
       fs.unlinkSync(outFile);
@@ -61,11 +59,10 @@ _.each(testFiles,function(f){
   };
 });
 
-vows.describe('ModestCompiler')
+module.exports.ModestCompiler = vows.describe('ModestCompiler')
 .addBatch({
   "Setup: " : setupTopics
 })
 .addBatch({
   "ModestCompiler" : compilerTopics
-})
-.export(module);
+});
