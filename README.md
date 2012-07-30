@@ -33,7 +33,7 @@ __zoo-pre.html__
 
 ####Preview in a browser
 
-``file:///C:/website/zoo-pre.html
+``file:///C:/website/zoo-pre.html``
 
 ####Compile when ready
 
@@ -57,13 +57,16 @@ __zoo.html__:
     </html>
 
 ####Write javascript like this:
-    $('body').append(modest.html('animal',
-      { 
-        name : 'Tiger',
-        weight: '306 kg (670 lb)',
-        url: 'http://en.wikipedia.org/wiki/Tiger' 
-      }
-    ));
+    $('body').append(modest.html
+      (
+        'animal',
+        { 
+          name : 'Tiger',
+          weight: '306 kg (670 lb)',
+          url: 'http://en.wikipedia.org/wiki/Tiger' 
+        }
+      )
+    );
 
 ###Installation
 
