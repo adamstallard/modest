@@ -84,6 +84,7 @@ _.each(dirs, function(path){
     if(!params.quiet)
       console.log('entering ' + path);
     process.chdir(path);
+    fs.unlink(params.previewScript);
     fs.link(__dirname + '/' + params.previewScript, params.previewScript);
     compiler.compileFiles(callback);
   });
