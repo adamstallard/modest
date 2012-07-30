@@ -10,7 +10,7 @@ __animal.xml__
     <p>
       Name: <span uses="name"/>
       Weight: <span uses="weight"/>
-      <a uses="href=url"/>Wikipedia Article</a>
+      <a uses="href=url">Wikipedia Article</a>
     </p>
     
 ####Write html like this:
