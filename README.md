@@ -11,7 +11,6 @@ You don't need to download any of the files here; and you don't need to use node
 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
-3. ``modest --help``
 
 ###Usage
 
