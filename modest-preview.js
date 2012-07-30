@@ -150,7 +150,8 @@ modest = this.modest || {
   //#!REMOVE-POST-COMPILE
   compileView : function($view,module){   
     var parameters = {};
-    var usesParameters = {}; 
+    var usesParameters = {};
+    var $targets;
     
     // get the view's parameters
 
@@ -167,11 +168,21 @@ modest = this.modest || {
     $view = $view.children(':first').unwrap();
     $view.addClass(module);
     
+    // find targets for the parameters
+    
+    $targets = $view.find('[uses]').not('[uses=""]');
+    
+    // handle parameter targets in the root element
+    
+    if($view.attr('uses').length !== 0)
+      $targets = $view.add($targets);
+    
     // inject the parameters
     
-    $view.find('[uses]').not('[uses=""]').each(function(){
+    $targets.each(function(){
       var $target = $(this);
       var uses = $target.attr('uses').toLowerCase().split(' ');
+      console.dir(uses);
       var eq, param, u, attr;
 
       for(u = 0; u < uses.length; ++u){
