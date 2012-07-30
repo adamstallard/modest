@@ -83,9 +83,9 @@ From a command prompt, type
 
     modest --help
 
-###Examples
-
 ###Documentation
+
+https://github.com/sweedl/modest/wiki
 
 ###Use in Javascript
 
