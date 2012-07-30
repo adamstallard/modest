@@ -15,7 +15,7 @@ __animal.xml__
     
 ####Write html like this:
 
-__zoo-pre.html__
+__zoo-pre.xhtml__
 
     <html>
       <head>
@@ -33,7 +33,7 @@ __zoo-pre.html__
 
 ####Preview in a browser
 
-``file:///C:/website/zoo-pre.html``
+``file:///C:/website/zoo-pre.xhtml``
 
 ####Compile when ready
 
@@ -42,7 +42,7 @@ __zoo-pre.html__
 
 ####Result:
 
-__zoo.html__:
+__zoo.xhtml__:
 
     <html>
       <head>
