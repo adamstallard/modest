@@ -20,7 +20,7 @@ From a command prompt, type
 
 ###Documentation
 
-###Javascript Projects
+###Use in Javascript
 
 If used in javascript, modest depends on [jquery](http://jquery.com).  Modest works well with [underscore](https://github.com/documentcloud/underscore) and [backbone](https://github.com/documentcloud/backbone).
 
