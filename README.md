@@ -82,7 +82,7 @@ From a command prompt, type
 
 ###Documentation
 
-https://github.com/sweedl/modest/wiki
+https://github.com/sweedl/modest/wiki/Documentation
 
 ###Use in Javascript
 
