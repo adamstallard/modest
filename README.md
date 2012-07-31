@@ -70,9 +70,9 @@ __zoo.xhtml__:
 
 ###Installation
 
-Just install node.js on your development machine and use npm (node package manager) to install modest.  Then you can run ``modest`` from the command line.
+Just [install node.js](http://nodejs.org/#download) on your development machine and use npm (node package manager) to install modest.  Then you can run ``modest`` from the command line.
 
-You don't need to download any of the files here; and you don't need to use node.js in any other part of your project.  
+You don't need to download any of the files here; you don't need to use node.js in any other part of your project.  
 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
