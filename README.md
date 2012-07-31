@@ -58,14 +58,11 @@ __zoo.xhtml__:
 
 ####Write javascript like this:
     $('body').append(modest.html
-      (
-        'animal',
-        { 
-          name : 'Tiger',
-          weight: '306 kg (670 lb)',
-          url: 'http://en.wikipedia.org/wiki/Tiger' 
-        }
-      )
+      ('animal', { 
+        name : 'Tiger',
+        weight: '306 kg (670 lb)',
+        url: 'http://en.wikipedia.org/wiki/Tiger' 
+      })
     );
 
 ###Installation
