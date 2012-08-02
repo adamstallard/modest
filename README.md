@@ -4,7 +4,6 @@
 Templating language for modular, reusable html, with a clean separation between html and javascript.
 
 ####Write a module like this:
-
 __animal.xml__
 ```xml
 <p>
@@ -14,7 +13,6 @@ __animal.xml__
 </p>
 ```    
 ####Write html like this:
-
 __zoo-pre.xhtml__
 ```xhtml
 <html>
@@ -32,39 +30,36 @@ __zoo-pre.xhtml__
 </html>
 ```
 ####Preview in a browser
-
 ``file:///C:/website/zoo-pre.xhtml``
-
 ####Compile when ready
-
-    cd C:/website
-    modest
-
+```dos
+cd C:/website
+modest
+```
 ####Result:
-
 __zoo.xhtml__:
-
-    <html>
-      <head>
-      </head>
-      <body>
-        <p class="animal">
-          Name: <span class="name">Lion</span>
-          Weight: <span class="weight">250 kg (550 lb)</span>
-          <a href="http://en.wikipedia.org/wiki/Lion">Wikipedia Article</a>
-        </p>
-      </body>
-    </html>
-
+```xhtml
+<html>
+  <head></head>
+  <body>
+    <p class="animal">
+      Name: <span class="name">Lion</span>
+      Weight: <span class="weight">250 kg (550 lb)</span>
+      <a href="http://en.wikipedia.org/wiki/Lion">Wikipedia Article</a>
+    </p>
+  </body>
+</html>
+```
 ####Write javascript like this:
-    $('body').append(modest.html
-      ('animal', { 
-        name : 'Tiger',
-        weight: '306 kg (670 lb)',
-        url: 'http://en.wikipedia.org/wiki/Tiger' 
-      })
-    );
-
+```javascript
+$('body').append(modest.html
+  ('animal', { 
+    name : 'Tiger',
+    weight: '306 kg (670 lb)',
+    url: 'http://en.wikipedia.org/wiki/Tiger' 
+  })
+);
+```
 ###Installation
 
 Just [install node.js](http://nodejs.org/#download) on your development machine and use npm (node package manager) to install modest.  Then you can run ``modest`` from the command line.
@@ -77,9 +72,9 @@ You don't need to download any of the files here; you don't need to use node.js 
 ###Usage
 
 From a command prompt, type
-
-    modest --help
-
+```bash
+modest --help
+```
 ###Documentation
 
 https://github.com/sweedl/modest/wiki/Documentation
@@ -91,10 +86,10 @@ If used with javascript, modest depends on [jquery](http://jquery.com).  Modest 
 ###Development How-To
 
 Change directories into your local clone and type
-
-    npm install
-
+```bash
+npm install
+```
 to get the node.js dependencies.  After you make your changes, make sure your tests are included in test/all.js.  The tests use [vows](http://vowsjs.org).  Make sure the tests still pass by running
-
-    npm test
-
+```bash
+npm test
+```
