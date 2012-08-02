@@ -1,6 +1,6 @@
 {
   "name" : "modest",
-  "version" : "1.10.0",
+  "version" : "1.10.1",
   "description" : "Modest is a utilty for creating, previewing, and compiling modular xhtml.",
   "keywords" : ["xhtml","html","template","templating","preview","modular","tags","modules","browser"],
   "author" : {
