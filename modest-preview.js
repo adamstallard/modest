@@ -191,24 +191,40 @@ modest = this.modest || {
     $targets.each(function(){
       var $target = $(this);
       var uses = $target.attr('uses').toLowerCase().split(' ');
-      var eq, param, u, attr;
+      var eq, param, u, attr, el;
 
       for(u = 0; u < uses.length; ++u){
-        eq = uses[u].indexOf('=');
-        if(eq !== -1){
-          attr = uses[u].slice(0,eq);
-          param = uses[u].slice(eq+1);
-          if(params[param])
-            $target.attr(attr,params[param]);
+        if(uses[u][0] == '+'){
+          if(params[uses[u].slice(1)]===undefined){
+            $target.remove();
+            break;
+          }
+        }
+        else if(uses[u][0] == '-'){
+          if(params[uses[u].slice(1)]!==undefined){
+            $target.remove();
+            break;
+          }
         }
         else {
-          if(params[uses[u]]!==undefined){
-            $target.attr(paramAttrs[uses[u]]);
-            $target.html(params[uses[u]]);
-            $target.addClass(uses[u]);         
+          eq = uses[u].indexOf('=');
+          if(eq !== -1){
+            attr = uses[u].slice(0,eq);
+            param = uses[u].slice(eq+1);
+            if(params[param])
+              $target.attr(attr,params[param]);
           }
-          else
-            $target.remove();
+          else {
+            if(params[uses[u]]===undefined){
+              $target.remove();
+              break;
+            }
+            else {
+              $target.attr(paramAttrs[uses[u]]);
+              $target.html(params[uses[u]]);
+              $target.addClass(uses[u]);         
+            } 
+          }
         }
       }
 

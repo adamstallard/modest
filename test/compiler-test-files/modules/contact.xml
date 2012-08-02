@@ -1,0 +1,5 @@
+<div>
+  <p>Name: <span uses="name"/></p>
+  <p uses="+cell">Cell #: <span uses="cell"/></p>
+  <p uses="-cell">No cell</p>
+</div>
