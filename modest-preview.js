@@ -191,22 +191,23 @@ modest = this.modest || {
     $targets.each(function(){
       var $target = $(this);
       var uses = $target.attr('uses').toLowerCase().split(' ');
-      var eq, param, u, attr, el;
+      var eq, param, u, attr;
 
       for(u = 0; u < uses.length; ++u){
-        if(uses[u][0] == '+'){
+        switch(uses[u][0]){
+        case '+':
           if(params[uses[u].slice(1)]===undefined){
             $target.remove();
             break;
           }
-        }
-        else if(uses[u][0] == '-'){
+          break;
+        case '-':
           if(params[uses[u].slice(1)]!==undefined){
             $target.remove();
             break;
           }
-        }
-        else {
+          break;
+        default:
           eq = uses[u].indexOf('=');
           if(eq !== -1){
             attr = uses[u].slice(0,eq);
@@ -224,10 +225,9 @@ modest = this.modest || {
               $target.html(params[uses[u]]);
               $target.addClass(uses[u]);         
             } 
-          }
+          }  
         }
       }
-
     });
 
   },
