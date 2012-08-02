@@ -6,31 +6,31 @@ Templating language for modular, reusable html, with a clean separation between 
 ####Write a module like this:
 
 __animal.xml__
-
-    <p>
-      Name: <span uses="name"/>
-      Weight: <span uses="weight"/>
-      <a uses="href=url">Wikipedia Article</a>
-    </p>
-    
+```xml
+<p>
+  Name: <span uses="name"/>
+  Weight: <span uses="weight"/>
+  <a uses="href=url">Wikipedia Article</a>
+</p>
+```    
 ####Write html like this:
 
 __zoo-pre.xhtml__
-
-    <html>
-      <head>
-        <script src="modest-preview.js"></script>
-        <include>animal</include>
-      </head>
-      <body>
-        <animal>
-          <name>Lion</name>
-          <weight>250 kg (550 lb)</weight>
-          <url>http://en.wikipedia.org/wiki/Lion</url>
-        </animal>
-      </body>
-    </html>
-
+```xhtml
+<html>
+  <head>
+    <script src="modest-preview.js"></script>
+    <include>animal</include>
+  </head>
+  <body>
+    <animal>
+      <name>Lion</name>
+      <weight>250 kg (550 lb)</weight>
+      <url>http://en.wikipedia.org/wiki/Lion</url>
+    </animal>
+  </body>
+</html>
+```
 ####Preview in a browser
 
 ``file:///C:/website/zoo-pre.xhtml``
