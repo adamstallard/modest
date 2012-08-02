@@ -148,24 +148,33 @@ modest = this.modest || {
     
   },
   //#!REMOVE-POST-COMPILE
+  getAttributes: function(el){
+    var attrs = {};
+    $.each(el.attributes, function(i,attr){
+      attrs[attr.name] = attr.value;
+    });
+    return attrs;
+  },
   compileView : function($view,module){   
-    var parameters = {};
-    var usesParameters = {};
+    var params = {};
+    var paramAttrs = {};
+    var viewAttrs = modest.getAttributes($view[0]);
     var $targets;
     
     // get the view's parameters
 
     $view.children().each(function(){
       var param = this;   
-      parameters[param.tagName.toLowerCase()] = param.innerHTML;
-      if(param.hasAttribute('uses'))
-        usesParameters[param.tagName.toLowerCase()] = param.getAttribute('uses').toLowerCase();
+      var tag = param.tagName.toLowerCase();  
+      paramAttrs[tag] = modest.getAttributes(param);
+      params[tag] = param.innerHTML;
     });
     
     // replace the view with the module
     
     $view.html(modest.modules[module]);
     $view = $view.children(':first').unwrap();
+    $view.attr(viewAttrs);
     $view.addClass(module);
     
     // find targets for the parameters
@@ -186,20 +195,20 @@ modest = this.modest || {
 
       for(u = 0; u < uses.length; ++u){
         eq = uses[u].indexOf('=');
-        if(eq === -1){
-          $target.addClass(uses[u]);
-          if(usesParameters[uses[u]])
-            $target.attr('uses',usesParameters[uses[u]]);
-          else if(parameters[uses[u]]!==undefined)
-            $target.html(parameters[uses[u]]);
-          else
-            $target.remove();
-        }
-        else {
+        if(eq !== -1){
           attr = uses[u].slice(0,eq);
           param = uses[u].slice(eq+1);
-          if(parameters[param])
-            $target.attr(attr,parameters[param]);
+          if(params[param])
+            $target.attr(attr,params[param]);
+        }
+        else {
+          if(params[uses[u]]!==undefined){
+            $target.attr(paramAttrs[uses[u]]);
+            $target.html(params[uses[u]]);
+            $target.addClass(uses[u]);         
+          }
+          else
+            $target.remove();
         }
       }
 
