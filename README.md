@@ -2,7 +2,7 @@
 (__mo__dular __des__ign __t__emplates)
 
 * Create modular, reusable html using your own semantic tags.
-* Keep a strong separation between html and javascript.
+* Keep a strong separation between html and javascript ([jquery](http://jquery.com), [backbone](https://github.com/documentcloud/backbone)).
 * Preview your templates in a browser or IDE.
 * Compile and deploy when ready.
 
