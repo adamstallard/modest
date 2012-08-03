@@ -1,7 +1,10 @@
 ##Modest 
 (__mo__dular __des__ign __t__emplates)
 
-Templating language for modular, reusable html, with a clean separation between html and javascript.  Encourages you to make your own semantic tags.
+* Create modular, reusable html using your own semantic tags.
+* Keep a strong separation between html and javascript.
+* Preview your templates in a browser or IDE.
+* Compile and deploy when ready.
 
 ####Write a module like this:
 __animal.xml__
