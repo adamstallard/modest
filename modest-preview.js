@@ -87,8 +87,10 @@ modest = this.modest || {
       modest.compileNode($module, dependencies[module]);
       if($module[0].outerHTML)
         modest.modules[module] = $module[0].outerHTML;
-      else
-        modest.modules[module] = new XMLSerializer().serializeToString($module[0]);
+      else{
+        if(this.XMLSerializer)
+          modest.modules[module] = new XMLSerializer().serializeToString($module[0]);
+      }  
       modest.$uncompiled[module] = false;
       modest.compiled[module] = module;
     }
