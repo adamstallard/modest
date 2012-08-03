@@ -29,7 +29,7 @@ var optimist = require('optimist')
 .usage(
   'Usage: modest [options] <directories>\n\
   \n\
-  Modest is a utilty for creating, previewing, and compiling modular xhtml.\n\
+  Modest is a utilty for previewing and compiling templates with semantic module tags.\n\
   \n\
   It can also be used in javascript to generate xhtml according to module definitions.\n\
   \n\
