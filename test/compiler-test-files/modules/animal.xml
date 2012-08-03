@@ -1,3 +1,4 @@
+uses: name, url
 <span>
   <a uses="name href=url"/>
 </span>

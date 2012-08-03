@@ -1,0 +1,6 @@
+This is a comment.
+<div>
+  <p>Let's chat</p>
+  <comment uses='+'>ignore this element</comment>
+</div>
+<span>ignore this element, too</span>
