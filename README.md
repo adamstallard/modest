@@ -3,7 +3,7 @@
 
 * Create modular, reusable html using your own semantic tags.
 * Keep a strong separation between html and javascript ([jquery](http://jquery.com), [backbone](https://github.com/documentcloud/backbone)).
-* Preview your templates in a browser or IDE as you work.
+* Preview in a browser or IDE as you work.
 * Compile and deploy when ready.
 
 ####Write a module like this:
