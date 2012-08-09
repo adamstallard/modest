@@ -65,9 +65,11 @@ $('body').append(modest.html
 ```
 ###Installation
 
-Just [install node.js](http://nodejs.org/#download) on your development machine and use npm (node package manager) to install modest.  Then you can run ``modest`` from the command line.
+Modest depends on [node.js](https://github.com/joyent/node), but you don't need to use node.js in any other part of your project. 
 
-You don't need to download any of the files here; you don't need to use node.js in any other part of your project.  
+Just [install node.js](http://nodejs.org/#download) on your development machine and use npm (node package manager) to install modest.
+Then you can run ``modest`` from the command line.
+You don't need to download any of the files here.
 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
