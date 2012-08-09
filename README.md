@@ -84,7 +84,7 @@ https://github.com/sweedl/modest/wiki/Documentation
 
 ###Use in Javascript
 
-If used with javascript, modest depends on [jquery](http://jquery.com).  Modest works well as the templating engine for [backbone.js](https://github.com/documentcloud/backbone).
+If used with javascript, modest depends on [jquery](http://jquery.com).  Modest works well as the templating engine for [backbone](https://github.com/documentcloud/backbone) or [meteor](https://github.com/meteor/meteor).
 
 ###Development How-To
 
