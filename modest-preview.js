@@ -45,17 +45,7 @@ modest = this.modest || {
         // Append ".xml" if the path doesn't already end with it
 
         path = path.replace(/\.xml$/,'') + '.xml'; 
-        
-        if(modest.nodejs){
-          moduleContent = fs.readFileSync(path,'utf8');
-        } 
-        else{
-          $.support.cors = true;
-          moduleContent = $.ajax({
-            url: path,
-            async : false
-          }).responseText;
-        }
+        moduleContent = modest.localFile(path);
         modest.$uncompiled[moduleName] = $(moduleContent);
       }
       
@@ -158,6 +148,27 @@ modest = this.modest || {
     });
     return attrs;
   },
+  localFile : function (path){
+    if(modest.nodejs)
+      return fs.readFileSync(path,'utf8');
+    else
+      return remoteFile(path);
+  },
+  remoteFile : function (path){
+    $.support.cors = true;
+      return $.ajax({
+        url: path,
+        async : false
+      }).responseText;
+  },
+  localData : function (path){
+    // Supported data formats: JSON
+    return $.parseJSON(localFile(path));
+  },
+  remoteData : function(path){
+    // Supported data formats: JSON
+    return $.parseJSON(remoteFile(path));
+  },
   compileView : function($view,module){   
     var params = {};
     var paramAttrs = {};
@@ -234,7 +245,7 @@ modest = this.modest || {
     });
 
   },
-  html : function(module,parameters){
+  render : function(module,parameters){
     var $view = $('<' + module + '>');
     var paramEl, param;
     
