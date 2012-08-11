@@ -152,7 +152,7 @@ modest = this.modest || {
     if(modest.nodejs)
       return fs.readFileSync(path,'utf8');
     else
-      return remoteFile(path);
+      return modest.remoteFile(path);
   },
   remoteFile : function (path){
     $.support.cors = true;
@@ -163,11 +163,11 @@ modest = this.modest || {
   },
   localData : function (path){
     // Supported data formats: JSON
-    return $.parseJSON(localFile(path));
+    return $.parseJSON(modest.localFile(path));
   },
   remoteData : function(path){
     // Supported data formats: JSON
-    return $.parseJSON(remoteFile(path));
+    return $.parseJSON(modest.remoteFile(path));
   },
   compileView : function($view,module){   
     var params = {};
