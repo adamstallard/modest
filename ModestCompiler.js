@@ -16,7 +16,8 @@ function ModestCompiler(params){
     this.scripts.push(this.params.jqueryPath);
   else
     $ = require('jquery');
-  require('./' + (this.params.previewScript || 'modest-preview.js'));
+  this.preview = './' + (this.params.previewScript || 'modest-preview.js');
+  require(this.preview);
   _.bindAll(this);
 }
 
@@ -30,7 +31,7 @@ ModestCompiler.prototype = {
     jsdom.env(file,
     this.scripts,
     function(errors, window) {
-      var script, head, includes, previewScriptTags, output, $body;
+      var script, head, includes, previewScriptTags, output, $body, $document, $staticJs;
 
       if(errors)
         callback(errors);
@@ -40,32 +41,33 @@ ModestCompiler.prototype = {
           modest.loadModules(process.cwd());
           modest.compileModules();
           
+          $document = $(document);
           $body = $(document.body);
           modest.compileNode($body);
           $body.find('[uses]').removeAttr('uses');
 
           // remove the modest includes
 
-          head = window.document.getElementsByTagName('head')[0];
-          includes = head.getElementsByTagName('include');
-          
-          _.each(includes,function(node){
-            head.removeChild(node);
-          });  
+          $document.find('head include').remove();
 
           // remove any modest-preview script tags
           
-          previewScriptTags = window.document.evaluate(
-            "//script[@src='" +  this.params.previewScript + "']", head, null, 0);
-          
-          _.each(previewScriptTags._value.nodes, function(node){
-            head.removeChild(node);
-          });
+          $document.find('head script[src="' + this.params.previewScript + '"]').remove();
           
           // remove any jquery script tags inserted by jsdom
           
-          $('script.jsdom').remove();
+          $document.find('script.jsdom').remove();
+          
+          // preprocess "static" js
+          
+          $staticJs = $document.find('script[static="true"]');
+          
+          $staticJs.each(function(){
+            require(process.cwd() + '/' + this.getAttribute('src'));
+          });
 
+          $staticJs.remove();
+          
           // add a script tag with a reference to 'modest.js', if needed
           
           if(!_.isEmpty(modest.saveAsJs)){
@@ -102,7 +104,7 @@ ModestCompiler.prototype = {
 
       // Take out everything that isn't needed from the modest object
 
-      modestJs = fs.readFileSync(this.params.previewScript,'utf8');
+      modestJs = fs.readFileSync(this.preview,'utf8');
       modestJs = modestJs.replace(/\/\/#REMOVE-POST-COMPILE[\s\S]*?\/\/#!REMOVE-POST-COMPILE/g,'');
 
       // Write the saved modules and the modest object to modest.js
