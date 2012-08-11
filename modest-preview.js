@@ -21,7 +21,7 @@ modest = this.modest || {
     var path, pathAttr, moduleName, moduleContent, i;
 
     for(i = 0; i < includes.length; ++i){
-      
+     
       // Assume the include tag has a single text node with the name of the module
       
       moduleName = includes[i].childNodes[0].nodeValue;
@@ -50,6 +50,7 @@ modest = this.modest || {
           moduleContent = fs.readFileSync(path,'utf8');
         } 
         else{
+          $.support.cors = true;
           moduleContent = $.ajax({
             url: path,
             async : false
@@ -150,7 +151,7 @@ modest = this.modest || {
     
   },
   //#!REMOVE-POST-COMPILE
-  getAttributes: function(el){
+  getAttributes : function(el){
     var attrs = {};
     $.each(el.attributes, function(i,attr){
       attrs[attr.name] = attr.value;

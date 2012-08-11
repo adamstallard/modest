@@ -1,6 +1,6 @@
 {
   "name" : "modest",
-  "version" : "1.10.3",
+  "version" : "1.10.4",
   "description" : "templates using your own semantic tags with a clean separation between html and javascript",
   "keywords" : ["xhtml","html","semantic","template","templating","preview","modular","tags","modules","browser"],
   "author" : {
