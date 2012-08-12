@@ -169,20 +169,46 @@ modest = this.modest || {
     // Supported data formats: JSON
     return $.parseJSON(modest.remoteFile(path));
   },
-  compileView : function($view,module){   
+  compileView : function($view,module,parameters){   
     var params = {};
     var paramAttrs = {};
-    var viewAttrs = modest.getAttributes($view[0]);
-    var $targets;
+    var viewAttrs, $targets;
     
-    // get the view's parameters
-
+    // Get parameters in the following order:
+    // (in case of duplicates, later overwrites earlier)
+    // 1. remote data
+    // 2. local data
+    // 3. js parameters
+    // 4. html parameters
+    
+    if($view.attr('remotedata')){
+      $.each($view.attr('remotedata').toLowerCase().split(' '),function(){
+        $.extend(params,modest.remoteData(this));
+      });
+      $view.removeAttr('remotedata');
+    }
+    
+    if($view.attr('data')){
+      $.each($view.attr('data').toLowerCase().split(' '),function(){
+        $.extend(params,modest.localData(this));
+      });
+      $view.removeAttr('data');
+    }
+    
+    $.extend(params,parameters);
+    
+    // html parameters
+    
     $view.children().each(function(){
       var param = this;   
       var tag = param.tagName.toLowerCase();  
       paramAttrs[tag] = modest.getAttributes(param);
       params[tag] = param.innerHTML;
     });
+    
+    // save the views attributes
+    
+    viewAttrs = modest.getAttributes($view[0]);
     
     // replace the view with the module
     
@@ -235,7 +261,7 @@ modest = this.modest || {
               break;
             }
             else {
-              $target.attr(paramAttrs[uses[u]]);
+              $target.attr(paramAttrs[uses[u]] || {});
               $target.html(params[uses[u]]);
               $target.addClass(uses[u]);         
             } 
@@ -243,17 +269,12 @@ modest = this.modest || {
         }
       }
     });
-
-  },
-  render : function(module,parameters){
-    var $view = $('<' + module + '>');
-    var paramEl, param;
     
-    for (param in parameters){
-      paramEl = document.createElement(param);
-      paramEl.innerHTML = parameters[param];
-      $view.append(paramEl);
-    }
+  },
+  render : function(module,parameters,localData,remoteData){
+    var $view = $('<' + module + '>');
+    $view.attr('data') = localData;
+    $view.attr('remotedata') = remoteData;
     
     modest.compileView($view,module);
     $view.find('[uses]').removeAttr('uses');
