@@ -7,4 +7,4 @@ var opts = {
 
 // all tests
 
-require('./ModestCompilerTest').ModestCompiler.run(opts);
+require('./ModestCompilerTests').ModestCompiler.run(opts);

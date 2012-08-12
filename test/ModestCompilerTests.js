@@ -52,9 +52,7 @@ _.each(testFiles,function(f){
       assert.ifError(e);
       var output = fs.readFileSync(outFile,'utf8');
       var key = ModestCompiler.normalize(fs.readFileSync(keyFile,'utf8'));
-//      console.log(key);
-//      console.log(output);
-      assert(output == key, outFile + ' did not match ' + keyFile);
+      assert(output == key, 'expected:\n\t' + key + '\n\tgot:\n\t' + output);
     }
   };
 });

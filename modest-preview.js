@@ -272,13 +272,12 @@ modest = this.modest || {
     
   },
   render : function(module,parameters,localData,remoteData){
-    var $view = $('<' + module + '>');
-    $view.attr('data') = localData;
-    $view.attr('remotedata') = remoteData;
-    
-    modest.compileView($view,module);
+    var $view = $('<div>');
+    $view.attr('data', localData);
+    $view.attr('remotedata', remoteData);
+    modest.compileView($view, module, parameters);
     $view.find('[uses]').removeAttr('uses');
-    return $view[0].outerHTML;
+    return $view.children(':first')[0].outerHTML;
   }
 };
 //#REMOVE-POST-COMPILE
