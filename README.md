@@ -55,13 +55,12 @@ __zoo.xhtml__:
 ```
 ####Write javascript like this:
 ```javascript
-$('body').append(modest.html
-  ('animal', { 
-    name : 'Tiger',
-    weight: '306 kg (670 lb)',
-    url: 'http://en.wikipedia.org/wiki/Tiger' 
-  })
-);
+var tiger = {
+  name : 'Tiger',
+  weight: '306 kg (670 lb)',
+  url: 'http://en.wikipedia.org/wiki/Tiger'
+};
+$('body').append(modest.render('animal',tiger));
 ```
 ###Installation
 
