@@ -29,20 +29,22 @@ var optimist = require('optimist')
 .usage(
   'Usage: modest [options] <directories>\n\
   \n\
-  Modest is a utilty for previewing and compiling templates with semantic module tags.\n\
-  \n\
-  It can also be used in javascript to generate xhtml according to module definitions.\n\
+  Modest is a utilty for previewing and compiling modular templates in html and making them \n\
+  available to javascript.\n\
   \n\
   The "modest" command does the following in each target directory:\n\
   \n\
   1. Places a copy of "modest-preview.js" for generating previews.\n\
   2. Compiles all files ending with -pre (plus an optional extension). The output files have the\n\
       same names as the input files, but with the "-pre" removed.\n\
-  3. If one or more modules needs to be available in javascript, creates a "modest.js" containing\n\
+  3. Runs javascript in the "-pre" files marked with the "server=true" attribute\n\
+  4. If one or more modules needs to be available in javascript, creates a "modest.js" containing\n\
       the compiled modules and code needed to support them.  Supported modules are shared by the\n\
       files in the same directory, i.e. there is one "modest.js" file per directory.\n\
   \n\
-  If no directories are supplied, the current directory is used.\n'
+  If no directories are supplied, the current directory is used.\n\
+  \n\
+  See "https://github.com/sweedl/modest/wiki/Documentation" for documentation.\n'
 );
 
 var argv = optimist.argv;
