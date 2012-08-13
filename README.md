@@ -91,7 +91,7 @@ Change directories into your local clone and type
 ```bash
 npm install
 ```
-to get the node.js dependencies.  After you make your changes, make sure your tests are included in test/all.js.  The tests use [vows](http://vowsjs.org).  Make sure the tests still pass by running
+to get the node.js dependencies.  After you make your changes, make sure your tests are run by test/all.js.  The tests use [vows](http://vowsjs.org).  Make sure the tests still pass by running
 ```bash
 npm test
 ```
