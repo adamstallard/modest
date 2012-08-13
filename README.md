@@ -1,68 +1,72 @@
 ##Modest 
 (__mo__dular __des__ign __t__emplates)
 
-* Create modular, reusable html using your own semantic tags.
-* Keep a strong separation between html and javascript ([jquery](http://jquery.com), [backbone](https://github.com/documentcloud/backbone)).
-* Preview in a browser or IDE as you work.
-* Compile and deploy when ready.
+Encourages clean separation between html and javascript.  Features:
 
-####Write a module like this:
-__animal.xml__
+* Templates are organized into modules that can be used as building blocks
+in web pages or other modules
+* Templates are represented by semantic tags
+
+__cat.xml__
 ```xml
-<p>
-  Name: <span uses="name"/>
-  Weight: <span uses="weight"/>
-  <a uses="href=url">Wikipedia Article</a>
-</p>
-```    
-####Write html like this:
-__zoo-pre.xhtml__
-```xhtml
-<html>
-  <head>
-    <script src="modest-preview.js"></script>
-    <include>animal</include>
-  </head>
-  <body>
-    <animal>
-      <name>Lion</name>
-      <weight>250 kg (550 lb)</weight>
-      <url>http://en.wikipedia.org/wiki/Lion</url>
-    </animal>
-  </body>
-</html>
+<div>
+  <paws/>
+  <whiskers/>
+</div>
 ```
-####Preview in a browser
-``file:///C:/website/zoo-pre.xhtml``
-####Compile when ready
-```dos
-cd C:/website
-modest
+__main.xhtml__
+```html
+...
+<cat/>
+...
 ```
-####Result:
-__zoo.xhtml__:
-```xhtml
-<html>
-  <head></head>
-  <body>
-    <p class="animal">
-      Name: <span class="name">Lion</span>
-      Weight: <span class="weight">250 kg (550 lb)</span>
-      <a href="http://en.wikipedia.org/wiki/Lion">Wikipedia Article</a>
-    </p>
-  </body>
-</html>
+* Data for templates can be supplied by
+ * semantic tags
+
+```xml
+<contact>
+  <name>Bob Jones</name>
+  <cell>123-456-7890</cell>
+</contact>
 ```
-####Write javascript like this:
+ <ul><ul><li>javascript objects</li></ul></ul>
+
 ```javascript
-$('body').append(modest.html
-  ('animal', { 
-    name : 'Tiger',
-    weight: '306 kg (670 lb)',
-    url: 'http://en.wikipedia.org/wiki/Tiger' 
-  })
-);
+var bob = {
+  name : "Bob Jones",
+  cell : "123-456-7890"
+};
+var out = modest.render('contact',bob);
 ```
+ <ul><ul><li>local data</li>
+ <li>remote data</li></ul></ul>
+
+```xml
+<contact data="bob.json"/>
+<contact remotedata="http://websitedata/contacts/mary"/>
+```
+* Decide which modules will be available to client-side js
+
+```html
+<include>cat</include>
+<include client="true">contact</include>
+```
+* Run server-side javascript as a compile step
+
+```html
+<script server="true" src="add-top-scores.js"></script>
+```
+* Preview as you work; compile when ready
+
+Refresh ``file:///C:/website/somefile.xhtml`` in a browser or IDE to see how it would look compiled.
+
+Run ``modest`` to actually compile it.
+* Use as a templating language in [backbone](https://github.com/documentcloud/backbone) or [meteor](https://github.com/meteor/meteor)
+
+###Documentation
+
+https://github.com/sweedl/modest/wiki/Documentation
+
 ###Installation
 
 Modest depends on [node.js](https://github.com/joyent/node), but you don't need to use node.js in any other part of your project. 
@@ -80,13 +84,6 @@ From a command prompt, type
 ```bash
 modest --help
 ```
-###Documentation
-
-https://github.com/sweedl/modest/wiki/Documentation
-
-###Use in Javascript
-
-If used with javascript, modest depends on [jquery](http://jquery.com).  Modest works well as the templating engine for [backbone](https://github.com/documentcloud/backbone) or [meteor](https://github.com/meteor/meteor).
 
 ###Development How-To
 
@@ -94,7 +91,7 @@ Change directories into your local clone and type
 ```bash
 npm install
 ```
-to get the node.js dependencies.  After you make your changes, make sure your tests are included in test/all.js.  The tests use [vows](http://vowsjs.org).  Make sure the tests still pass by running
+to get the node.js dependencies.  After you make your changes, make sure your tests are run by test/all.js.  The tests use [vows](http://vowsjs.org).  Make sure the tests still pass by running
 ```bash
 npm test
 ```
