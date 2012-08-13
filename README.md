@@ -1,6 +1,8 @@
 ##Modest 
 (__mo__dular __des__ign __t__emplates)
 
+Encourages separation between html and javascript.  Features:
+
 * Templates are organized into modules that can be used as building blocks
 in web pages or other modules
 * Templates are represented by semantic tags
@@ -20,15 +22,43 @@ __main.xhtml__
 ```
 * Data for templates can be supplied by
  * semantic tags
+
+```xml
+<contact>
+  <name>Bob Jones</name>
+  <cell>123-456-7890</cell>
+</contact>
+```
  * javascript objects
+
+```javascript
+var bob = {
+  name : "Bob Jones",
+  cell : "123-456-7890"
+};
+var out = modest.render('contact',bob);
+```
  * local data
  * remote data
-* Strong separation between html and javascript
+
+```xml
+<contact data="bob.json"/>
+<contact remotedata="http://www.sweedl.com/contacts/mary"/>
+```
 * Decide which modules will be pre-compiled and which will be dynamic
-* Pre-render html with "static" javascript
+
+```html
+<include>cat</include>
+<include js="true">contact</include>
+```
+* Pre-render html with "static" (server-side) javascript
+
+```html
+<script static="true" src="pre-render.js"></script>
+```
 * Preview as you work; compile when ready to deploy
 
-Refresh ``file:///C:/website/somefile.xhtml`` in a browser or IDE to see how it would look compiled.
+Refresh ``file:///C:/website/somefile.xhtml`` (browser or IDE) to see how it would look compiled.
 Run ``modest`` to actually compile it.
 * Use as a templating language in [backbone](https://github.com/documentcloud/backbone) or [meteor](https://github.com/meteor/meteor)
 
