@@ -51,10 +51,10 @@ var out = modest.render('contact',bob);
 <include>cat</include>
 <include client="true">contact</include>
 ```
-* Run "static" (server-side) javascript as a compile step
+* Run server-side javascript as a compile step
 
 ```html
-<script static="true" src="add-top-scores.js"></script>
+<script server="true" src="add-top-scores.js"></script>
 ```
 * Preview as you work; compile when ready
 
