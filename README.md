@@ -45,18 +45,18 @@ var out = modest.render('contact',bob);
 <contact data="bob.json"/>
 <contact remotedata="http://websitedata/contacts/mary"/>
 ```
-* Decide which modules will be pre-compiled and which will be dynamic (or both)
+* Decide which modules will be available to client-side js
 
 ```html
 <include>cat</include>
-<include js="true">contact</include>
+<include client="true">contact</include>
 ```
-* Pre-render html with "static" (server-side) javascript
+* Run "static" (server-side) javascript as a compile step
 
 ```html
 <script static="true" src="add-top-scores.js"></script>
 ```
-* Preview as you work; compile when ready to deploy
+* Preview as you work; compile when ready
 
 Refresh ``file:///C:/website/somefile.xhtml`` in a browser or IDE to see how it would look compiled.
 
