@@ -31,7 +31,7 @@ ModestCompiler.prototype = {
     jsdom.env(file,
     this.scripts,
     function(errors, window) {
-      var script, head, includes, previewScriptTags, output, $body, $document, $staticJs;
+      var script, head, includes, previewScriptTags, output, $body, $document, $ssJs;
 
       if(errors)
         callback(errors);
@@ -58,15 +58,15 @@ ModestCompiler.prototype = {
           
           $document.find('script.jsdom').remove();
           
-          // preprocess "static" js
+          // preprocess server-side js
           
-          $staticJs = $document.find('script[static="true"]');
+          $ssJs = $document.find('script[server="true"]');
           
-          $staticJs.each(function(){
+          $ssJs.each(function(){
             require(process.cwd() + '/' + this.getAttribute('src'));
           });
 
-          $staticJs.remove();
+          $ssJs.remove();
           
           // add a script tag with a reference to 'modest.js', if needed
           
@@ -90,7 +90,7 @@ ModestCompiler.prototype = {
   },
   writeModestJs : function(){
   
-    // Save the modules requested for use with JS          
+    // Save the modules requested for client-side use in 'modest.js'          
 
     var module, modestJs, moduleDefinition;
     var savedModules = '';

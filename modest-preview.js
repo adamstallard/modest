@@ -49,7 +49,7 @@ modest = this.modest || {
         modest.$uncompiled[moduleName] = $(moduleContent);
       }
       
-      if(includes[i].hasAttribute('js')){
+      if(includes[i].hasAttribute('client')){
         modest.saveAsJs[moduleName] = moduleName;
       }      
     }
@@ -271,10 +271,8 @@ modest = this.modest || {
     });
     
   },
-  render : function(module,parameters,localData,remoteData){
+  render : function(module,parameters){
     var $view = $('<div>');
-    $view.attr('data', localData);
-    $view.attr('remotedata', remoteData);
     modest.compileView($view, module, parameters);
     $view.find('[uses]').removeAttr('uses');
     return $view.children(':first')[0].outerHTML;
