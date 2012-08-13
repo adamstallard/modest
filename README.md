@@ -45,7 +45,7 @@ var out = modest.render('contact',bob);
 <contact data="bob.json"/>
 <contact remotedata="http://websitedata/contacts/mary"/>
 ```
-* Decide which modules will be pre-compiled and which will be dynamic
+* Decide which modules will be pre-compiled and which will be dynamic (or both)
 
 ```html
 <include>cat</include>
