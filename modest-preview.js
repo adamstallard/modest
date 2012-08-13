@@ -161,7 +161,7 @@ modest = this.modest || {
         async : false
       }).responseText;
   },
-  localData : function (path){
+  data : function (path){
     // Supported data formats: JSON
     return $.parseJSON(modest.localFile(path));
   },
@@ -190,7 +190,7 @@ modest = this.modest || {
     
     if($view.attr('data')){
       $.each($view.attr('data').toLowerCase().split(' '),function(){
-        $.extend(params,modest.localData(this));
+        $.extend(params,modest.data(this));
       });
       $view.removeAttr('data');
     }
