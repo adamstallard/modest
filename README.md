@@ -1,7 +1,9 @@
 ##Modest 
 (__mo__dular __des__ign __t__emplates)
 
-Encourages clean separation between html and javascript.  Features:
+Encourages clean separation between html and javascript.
+
+Features:
 
 * Templates are organized into modules that can be used as building blocks
 in web pages or other modules
