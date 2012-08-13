@@ -29,7 +29,7 @@ __main.xhtml__
   <cell>123-456-7890</cell>
 </contact>
 ```
- * javascript objects
+ <ul><ul><li>javascript objects</li></ul></ul>
 
 ```javascript
 var bob = {
@@ -38,12 +38,12 @@ var bob = {
 };
 var out = modest.render('contact',bob);
 ```
- * local data
- * remote data
+ <ul><ul><li>local data</li>
+ <li>remote data</li></ul></ul>
 
 ```xml
 <contact data="bob.json"/>
-<contact remotedata="http://www.sweedl.com/contacts/mary"/>
+<contact remotedata="http://websitedata/contacts/mary"/>
 ```
 * Decide which modules will be pre-compiled and which will be dynamic
 
@@ -54,11 +54,12 @@ var out = modest.render('contact',bob);
 * Pre-render html with "static" (server-side) javascript
 
 ```html
-<script static="true" src="pre-render.js"></script>
+<script static="true" src="add-top-scores.js"></script>
 ```
 * Preview as you work; compile when ready to deploy
 
-Refresh ``file:///C:/website/somefile.xhtml`` (browser or IDE) to see how it would look compiled.
+Refresh ``file:///C:/website/somefile.xhtml`` in a browser or IDE to see how it would look compiled.
+
 Run ``modest`` to actually compile it.
 * Use as a templating language in [backbone](https://github.com/documentcloud/backbone) or [meteor](https://github.com/meteor/meteor)
 
