@@ -1,7 +1,7 @@
 ##Modest 
 (__mo__dular __des__ign __t__emplates)
 
-Encourages clean separation between html and javascript.
+Previewable, modular, semantic templates. Server-side javascript. And a clean separation of design and logic.
 
 Features:
 
