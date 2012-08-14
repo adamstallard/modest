@@ -1,7 +1,7 @@
 ##Modest 
 (__mo__dular __des__ign __t__emplates)
 
-Previewable, modular, semantic templates. Server-side javascript. Clean separation of design and logic.
+Previewable, modular, semantic templating. Server-side javascript. Clean separation of design and logic.
 
 Features:
 
