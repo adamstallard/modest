@@ -1,7 +1,7 @@
 {
   "name" : "modest",
   "version" : "1.12.3",
-  "description" : "Previewable, modular, semantic templates. Server-side javascript. And a clean separation of design and logic.",
+  "description" : "Previewable, modular, semantic templates. Server-side javascript. Clean separation of design and logic.",
   "keywords" : ["xhtml","html","semantic","template","templating","preview","modular","tags","modules","browser"],
   "author" : {
     "name" : "Adam Stallard",
