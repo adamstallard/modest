@@ -87,6 +87,10 @@ From a command prompt, type
 modest --help
 ```
 
+###Examples
+
+* [Examples](https://github.com/sweedl/modest/wiki/Examples)
+
 ###Development How-To
 
 Change directories into your local clone and type
