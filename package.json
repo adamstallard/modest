@@ -1,6 +1,6 @@
 {
   "name" : "modest",
-  "version" : "1.12.3",
+  "version" : "1.13.1",
   "description" : "Previewable, modular, semantic templating. Server-side javascript. Clean separation of design and logic.",
   "keywords" : ["xhtml","html","semantic","template","templating","preview","modular","tags","modules","browser"],
   "author" : {
