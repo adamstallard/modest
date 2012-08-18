@@ -43,8 +43,18 @@ ModestCompiler.prototype = {
           
           $document = $(document);
           $body = $(document.body);
+          
+          // remove dummy elements
+          
+          $document.find('[dummy="true"]').remove();
+          
+          // compile body
+          
           modest.compileNode($body);
-          $body.find('[uses]').removeAttr('uses');
+          
+          // remove 'uses' attributes
+          
+          $body.find('[uses]').not('[uses=""]').removeAttr('uses');
 
           // remove the modest includes
 
@@ -58,7 +68,7 @@ ModestCompiler.prototype = {
           
           $document.find('script.jsdom').remove();
           
-          // preprocess server-side js
+          // preprocess and remove server-side js
           
           $ssJs = $document.find('script[server="true"]');
           

@@ -127,7 +127,7 @@ modest = this.modest || {
     }
     
   },
-  compileNode : function($node, modules){  
+  compileNode : function($node, modules){
     if(!modules)
       modules = modest.compiled;
     
@@ -274,7 +274,7 @@ modest = this.modest || {
   render : function(module,parameters){
     var $view = $('<div>');
     modest.compileView($view, module, parameters);
-    $view.find('[uses]').removeAttr('uses');
+    $view.find('[uses]').not('[uses=""]').removeAttr('uses');
     return $view.children(':first')[0].outerHTML;
   }
 };
