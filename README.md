@@ -1,73 +1,38 @@
 ##Modest 
 (__mo__dular __des__ign __t__emplates)
 
-Previewable, modular, semantic templating. Server-side javascript. Clean separation of design and logic.
+Web templating engine for stand-alone use or with the web framework of your choice ([backbone](https://github.com/documentcloud/backbone), [meteor](https://github.com/meteor/meteor), etc.)
 
-Features:
+###[Full Documentation](https://github.com/sweedl/modest/wiki/Documentation)
 
-* Templates are organized into modules that can be used as building blocks
-in web pages or other modules
-* Templates are represented by semantic tags
+###[Examples](https://github.com/sweedl/modest/wiki/Examples)
 
-__cat.xml__
+* Create HTML modules (building blocks) that can be used like regular HTML.
+
 ```xml
 <div>
-  <paws/>
-  <whiskers/>
+  <contact>
+    <name>Casey Jones</name>
+    <phone>123-456-7890</phone>
+  </contact>
 </div>
 ```
-__main.xhtml__
-```html
-...
-<cat/>
-...
-```
-* Data for templates can be supplied by
- * semantic tags
-
-```xml
-<contact>
-  <name>Bob Jones</name>
-  <cell>123-456-7890</cell>
-</contact>
-```
- <ul><ul><li>javascript objects</li></ul></ul>
+* Templates look like html, and can be previewed in a browser or ide
+* Data is supplied with semantic tags in html and javscript objects in javascript for a clean separation of languages
 
 ```javascript
-var bob = {
-  name : "Bob Jones",
+var contact = {
+  name : "Casey Jones",
   cell : "123-456-7890"
 };
-var out = modest.render('contact',bob);
+var out = modest.render('contact',contact);
 ```
- <ul><ul><li>local data</li>
- <li>remote data</li></ul></ul>
+* Data can also be supplied with local or remote files
 
 ```xml
 <contact data="bob.json"/>
 <contact remotedata="http://websitedata/contacts/mary"/>
 ```
-* Decide which modules will be available to client-side js
-
-```html
-<include>cat</include>
-<include client="true">contact</include>
-```
-* Run server-side javascript as a compile step
-
-```html
-<script server="true" src="add-top-scores.js"></script>
-```
-* Preview as you work; compile when ready
-
-Refresh ``file:///C:/website/somefile.xhtml`` in a browser or IDE to see how it would look compiled.
-
-Run ``modest`` to actually compile it.
-* Use as a templating language in [backbone](https://github.com/documentcloud/backbone) or [meteor](https://github.com/meteor/meteor)
-
-###Documentation
-
-https://github.com/sweedl/modest/wiki/Documentation
 
 ###Installation
 
@@ -86,10 +51,6 @@ From a command prompt, type
 ```bash
 modest --help
 ```
-
-###Examples
-
-* [Examples](https://github.com/sweedl/modest/wiki/Examples)
 
 ###Development How-To
 
