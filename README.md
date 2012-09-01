@@ -23,8 +23,8 @@ Web templating engine for stand-alone use or with the framework of your choice (
   </contact>
 </div>
 ```
-* Create templates that look like html and can be previewed in a browser or IDE
-* Supply data with semantic tags in html and javscript objects in javascript for a clean separation of languages
+* Create templates that look like html and can be previewed in a browser or IDE.
+* Supply data with semantic tags in html and javscript objects in javascript for a clean separation of languages.
 
 ```javascript
 var contact = {
