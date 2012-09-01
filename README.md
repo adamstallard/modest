@@ -41,7 +41,7 @@ var out = modest.render('contact',contact);
 ```
 * Compose new modules from existing modules and/or html
 * Pass parameters to inner modules using [passthrough parameters](https://github.com/sweedl/modest/wiki/Documentation#wiki-passthrough-parameters).
-This is a much easier syntax than trying to forward parameters to nested templates or partials in other languages.
+This is a much easier syntax than nested templates or partials in other languages.
   * [See Documentation and Example](https://github.com/sweedl/modest/wiki/Documentation#wiki-passthrough-parameters)
 
 ###Installation Notes<a id="installation-notes"/>
