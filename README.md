@@ -39,7 +39,7 @@ var out = modest.render('contact',contact);
 <contact data="bob.json"/>
 <contact remotedata="http://websitedata/contacts/mary"/>
 ```
-* Compose new modules from existing modules and html
+* Compose new modules from existing modules and/or html
 * Pass parameters to inner modules using [passthrough parameters](https://github.com/sweedl/modest/wiki/Documentation#wiki-passthrough-parameters).
 This is a much easier syntax than trying to forward parameters to nested templates or partials in other languages.
   * [See Documentation and Example](https://github.com/sweedl/modest/wiki/Documentation#wiki-passthrough-parameters)
