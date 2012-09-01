@@ -7,7 +7,7 @@ Web templating engine for stand-alone use or with the framework of your choice (
 * [Full Documentation](https://github.com/sweedl/modest/wiki/Documentation)
 * [Examples](https://github.com/sweedl/modest/wiki/Examples)
 
-###Installation
+###Installation[_*_](#installation-notes)
 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
@@ -23,8 +23,8 @@ Web templating engine for stand-alone use or with the framework of your choice (
   </contact>
 </div>
 ```
-* Templates look like html, and can be previewed in a browser or IDE
-* Data is supplied with semantic tags in html and javscript objects in javascript for a clean separation of languages
+* Create templates that look like html and can be previewed in a browser or IDE
+* Supply data with semantic tags in html and javscript objects in javascript for a clean separation of languages
 
 ```javascript
 var contact = {
@@ -33,17 +33,18 @@ var contact = {
 };
 var out = modest.render('contact',contact);
 ```
-* Data can also be supplied with local or remote files
+* Or supply data from local or remote files
 
 ```xml
 <contact data="bob.json"/>
 <contact remotedata="http://websitedata/contacts/mary"/>
 ```
-* Pass parameters to nested modules using [passthrough parameters](https://github.com/sweedl/modest/wiki/Documentation#wiki-passthrough-parameters).
-This is a much easier syntax than the one used for passing parameters to nested templates or partials in other languages.
+* Compose new modules from existing modules and html
+* Pass parameters to inner modules using [passthrough parameters](https://github.com/sweedl/modest/wiki/Documentation#wiki-passthrough-parameters).
+This is a much easier syntax than trying to forward parameters to nested templates or partials in other languages.
   * [See Documentation and Example](https://github.com/sweedl/modest/wiki/Documentation#wiki-passthrough-parameters)
 
-###Installation Notes
+###Installation Notes<a id="installation-notes"/>
 
 Modest depends on [node.js](https://github.com/joyent/node), but you don't need to use node.js in any other part of your project. 
 
