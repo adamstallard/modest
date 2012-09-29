@@ -31,7 +31,7 @@ ModestCompiler.prototype = {
     jsdom.env(file,
     this.scripts,
     function(errors, window) {
-      var script, head, includes, previewScriptTags, output, $body, $document, $ssJs;
+      var script, output, $body, $document, $ssJs;
 
       if(errors)
         callback(errors);
