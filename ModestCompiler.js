@@ -68,9 +68,9 @@ ModestCompiler.prototype = {
           
           $document.find('script.jsdom').remove();
           
-          // preprocess and remove server-side js
+          // execute and then remove js marked for preprocessing
           
-          $ssJs = $document.find('script[server="true"]');
+          $ssJs = $document.find('script[pre="true"]');
           
           $ssJs.each(function(){
             require(process.cwd() + '/' + this.getAttribute('src'));
