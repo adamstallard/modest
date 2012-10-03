@@ -69,3 +69,7 @@ to get the node.js dependencies.  After you make your changes, make sure your te
 ```bash
 npm test
 ```
+
+###License
+
+Permission is granted under the [MIT license](https://github.com/sweedl/modest/blob/master/LICENSE).
