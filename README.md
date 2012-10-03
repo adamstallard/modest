@@ -5,7 +5,7 @@ Web templating engine for stand-alone use or with the framework of your choice (
 
 ###Motivation
 
-The two things that set modest apart from other templating languages are
+Two things that set modest apart from other templating languages:
 
 1.  The templates look like HTML
 2.  It makes it easy to build larger templates out of smaller ones
