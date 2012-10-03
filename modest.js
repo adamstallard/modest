@@ -37,7 +37,7 @@ var optimist = require('optimist')
   1. Places a copy of "modest-preview.js" for generating previews.\n\
   2. Compiles all files ending with -pre (plus an optional extension). The output files have the\n\
       same names as the input files, but with the "-pre" removed.\n\
-  3. Runs javascript in the "-pre" files marked with the "pre=true" attribute\n\
+  3. Runs (and then removes) javascript in the "-pre" files having the "pre=true" attribute in their script tags.\n\
   4. If one or more modules needs to be available in javascript, creates a "modest.js" containing\n\
       the compiled modules and code needed to support them.  Supported modules are shared by the\n\
       files in the same directory, i.e. there is one "modest.js" file per directory.\n\
