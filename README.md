@@ -3,6 +3,19 @@
 
 Web templating engine for stand-alone use or with the framework of your choice ([backbone](https://github.com/documentcloud/backbone), [meteor](https://github.com/meteor/meteor), etc.)
 
+##Motivation
+
+The two things that set modest apart from other templating languages are
+
+1.  The templates look like HTML
+2.  It makes it easy to build larger templates out of smaller ones
+
+It is specifically adapted for the web (javascript and HTML).
+
+It strives for a clean separation between languages:  it looks like javascript when you're working in javascript, and it looks like HTML when you're working in HTML.  This keeps designing and coding roles separate.
+
+I created it because I got tired of maintaining chunks of HTML in my javascript code, and because XSLT is a horrible language that no one should have to use.
+
 ###Documentation & Examples
 * [Full Documentation](https://github.com/sweedl/modest/wiki/Documentation)
 * [Examples](https://github.com/sweedl/modest/wiki/Examples)
