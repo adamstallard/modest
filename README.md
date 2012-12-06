@@ -1,5 +1,5 @@
 ##Modest 
-(__mo__dular __des__ign __t__emplates)
+( __mo__dular __des__ign __t__emplates )
 
 Web templating engine for stand-alone use or with the framework of your choice ([backbone](https://github.com/documentcloud/backbone), [meteor](https://github.com/meteor/meteor), etc.)
 
