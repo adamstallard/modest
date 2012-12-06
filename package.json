@@ -5,8 +5,8 @@
   "keywords" : ["xhtml","html","semantic","template","templating","preview","modular","tags","modules","browser","web"],
   "author" : {
     "name" : "Adam Stallard",
-    "email" : "adam@sweedl.com",
-    "url" : "sweedl.com"
+    "email" : "adam@goalzen.org",
+    "url" : "goalzen.org"
   },
   "directories" : {
     "test" : "test"
@@ -24,7 +24,7 @@
   },
   "license" : {
     "type" : "MIT",
-    "url" : "https://github.com/sweedl/modest/blob/master/LICENSE-MIT"
+    "url" : "https://github.com/goalzen/modest/blob/master/LICENSE-MIT"
   },
   "engines" : {
     "node" : "*"
@@ -35,10 +35,10 @@
   },
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/sweedl/modest.git"
+    "url" : "https://github.com/goalzen/modest.git"
   },
   "bugs" : {
-    "url" : "https://github.com/sweedl/modest/issues"
+    "url" : "https://github.com/goalzen/modest/issues"
   },
-  "homepage" : "https://github.com/sweedl/modest/wiki/Documentation"
+  "homepage" : "https://github.com/goalzen/modest/wiki/Documentation"
 }

@@ -44,7 +44,7 @@ var optimist = require('optimist')
   \n\
   If no directories are supplied, the current directory is used.\n\
   \n\
-  See "https://github.com/sweedl/modest/wiki/Documentation" for documentation.\n'
+  See "https://github.com/goalzen/modest/wiki/Documentation" for documentation.\n'
 );
 
 var argv = optimist.argv;

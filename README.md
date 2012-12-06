@@ -17,8 +17,8 @@ It strives for a clean separation between languages:  it looks like javascript w
 I created it because I got tired of maintaining chunks of HTML in my javascript code.
 
 ###Documentation & Examples
-* [Full Documentation](https://github.com/sweedl/modest/wiki/Documentation)
-* [Examples](https://github.com/sweedl/modest/wiki/Examples)
+* [Full Documentation](https://github.com/goalzen/modest/wiki/Documentation)
+* [Examples](https://github.com/goalzen/modest/wiki/Examples)
 
 ###Installation[_*_](#installation-notes)
 
@@ -53,9 +53,9 @@ var out = modest.render('contact',contact);
 <contact remotedata="http://websitedata/contacts/mary"/>
 ```
 * Compose new modules from existing modules and/or html.
-* Pass parameters to inner modules using [passthrough parameters](https://github.com/sweedl/modest/wiki/Documentation#wiki-passthrough-parameters).
+* Pass parameters to inner modules using [passthrough parameters](https://github.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters).
 This is an easier syntax than nested templates or partials in other languages.
-  * [See Documentation and Example](https://github.com/sweedl/modest/wiki/Documentation#wiki-passthrough-parameters)
+  * [See Documentation and Example](https://github.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters)
 
 ###Installation Notes<a id="installation-notes"/>
 
@@ -85,4 +85,4 @@ npm test
 
 ###License
 
-Permission is granted under the [MIT license](https://github.com/sweedl/modest/blob/master/LICENSE).
+Permission is granted under the [MIT license](https://github.com/goalzen/modest/blob/master/LICENSE).
