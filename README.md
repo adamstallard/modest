@@ -12,7 +12,7 @@ Two things set modest apart from other templating languages:
 
 It is specifically adapted for the web (javascript and HTML).
 
-It strives for a clean separation between languages:  it looks like javascript when you're working in javascript, and it looks like HTML when you're working in HTML.  This keeps design and coding roles separate.
+It strives for a clean separation between languages:  it looks like javascript when you're working in javascript, and HTML when you're working in HTML.  This keeps design and coding roles separate.
 
 I created it because I got tired of maintaining chunks of HTML in my javascript code.
 
