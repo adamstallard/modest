@@ -85,4 +85,4 @@ npm test
 
 ###License
 
-Permission is granted under the [MIT license](https://github.com/goalzen/modest/blob/master/LICENSE).
+Permission is granted under the [MIT license](https://github.com/goalzen/modest/blob/master/LICENSE-MIT).
