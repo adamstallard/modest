@@ -17,7 +17,7 @@ modest = this.modest || {
     modest.saveAsJs = {};
   },
   loadModules : function(){
-    var includes = document.getElementsByTagName('head')[0].getElementsByTagName('include');
+    var includes = document.getElementsByTagName('include');
     var path, pathAttr, moduleName, moduleContent, i;
 
     for(i = 0; i < includes.length; ++i){
@@ -51,7 +51,9 @@ modest = this.modest || {
       
       if(includes[i].hasAttribute('client')){
         modest.saveAsJs[moduleName] = moduleName;
-      }      
+      }
+
+      includes[i].parentNode.removeChild(includes[i]);
     }
     
   },
@@ -122,7 +124,7 @@ modest = this.modest || {
         }      
       }
       
-      if(lastCompiledCount == compiledCount)
+      if(lastCompiledCount === compiledCount)
         loopError();  
     }
     
@@ -281,7 +283,7 @@ modest = this.modest || {
 //#REMOVE-POST-COMPILE
 if(this.window){
   $(function(){
-    modest.loadModules(window);
+    modest.loadModules();
     modest.compileModules();
     modest.compileNode($(document.body));
   });

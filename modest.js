@@ -1,19 +1,14 @@
 #!/usr/bin/env node
 
-//modest.js
-//
-//a utility for creating, previewing, and compiling modular xhtml
-//
-
 var fs = require('fs');
 
-var _ = require('underscore');
 var async = require('async');
+var _ = require('underscore');
+var optimist = require('optimist');
 
 var ModestCompiler = require('./ModestCompiler');
 
-var optimist = require('optimist')
-.options({
+optimist.options({
   "j" : {
     alias : "jquery",
     describe : "Path to (or URL of) jquery.  If omitted, modest will use the npm jquery module."
@@ -49,19 +44,22 @@ var optimist = require('optimist')
 
 var argv = optimist.argv;
 
-if(_.isBoolean(argv.j)){
-  optimist.showHelp(console.log);
-  console.error('Error: Option had no value, or no space between option and value');
-  process.exit(1);
-}
-if(_.isArray(argv.j)){
-  optimist.showHelp(console.log);
-  console.error('Error: Multiple options of the same type');
-  process.exit(2);
-}
 if(argv.h || argv['?']){
   optimist.showHelp() || optimist.showHelp();
   process.exit();
+}
+
+function assertSingleValue(opt){
+  if(_.isBoolean(opt)){
+    optimist.showHelp(console.log);
+    console.error('Error: Option had no value, or no space between option and value');
+    process.exit(1);
+  }
+  if(_.isArray(opt)){
+    optimist.showHelp(console.log);
+    console.error('Error: Multiple options of the same type');
+    process.exit(2);
+  }
 }
 
 params = {

@@ -56,10 +56,6 @@ ModestCompiler.prototype = {
           
           $body.find('[uses]').not('[uses=""]').removeAttr('uses');
 
-          // remove the modest includes
-
-          $document.find('head include').remove();
-
           // remove any modest-preview script tags
           
           $document.find('head script[src="' + this.params.previewScript + '"]').remove();
