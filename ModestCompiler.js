@@ -110,7 +110,9 @@ ModestCompiler.prototype = {
 
       // Take out everything that isn't needed from the modest object
 
+      // Todo : sleep and retry if reading the preview fails 
       modestJs = fs.readFileSync(this.preview,'utf8');
+      
       modestJs = modestJs.replace(/\/\/#REMOVE-POST-COMPILE[\s\S]*?\/\/#!REMOVE-POST-COMPILE/g,'');
 
       // Write the saved modules and the modest object to modest.js

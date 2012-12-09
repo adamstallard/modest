@@ -205,7 +205,10 @@ modest = this.modest || {
       var param = this;   
       var tag = param.tagName.toLowerCase();  
       paramAttrs[tag] = modest.getAttributes(param);
-      params[tag] = param.innerHTML;
+      if(param.innerText && !param.children.length)
+        params[tag] = param.innerText;
+      else
+        params[tag] = param.innerHTML;
     });
     
     // save the views attributes
