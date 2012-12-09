@@ -25,6 +25,9 @@ I created it because I got tired of maintaining chunks of HTML in my javascript 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
 
+###Report Bugs
+https://github.com/goalzen/modest/issues
+
 ###What Can I Do With It?
 * Create HTML modules (building blocks) that can be used like regular HTML.
 
