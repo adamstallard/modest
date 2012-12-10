@@ -94,9 +94,9 @@ ModestCompiler.prototype = {
       }  
     }.bind(this));
   },
-  createModestJsIfNeeded : function(){
+  writeModestJs : function(){
   
-    // Add the modules that should be saved for client-side use in 'modest.js'          
+    // Save the modules requested for client-side use in 'modest.js'          
 
     var module, modestJs, moduleDefinition;
     var savedModules = '';
@@ -106,21 +106,18 @@ ModestCompiler.prototype = {
       savedModules += 'modest.modules.' + module + " = '" + moduleDefinition;
     }
 
-    if(savedModules !== '')
-      createModestJs();
+    if(savedModules !== ''){
+
+      modestJs = fs.readFileSync(this.preview,'utf8');
       
-  },
-  createModestJs : function(){
-    this.readPreviewAttempts += 1;
-    fs.readFileSync(this.preview,'utf8',writeModestJs);
-  };
-  writeModestJs : function(err, data){
-    if(err){
-      if()
-    }
-      throw err;
-    var modestJs = data.replace(/\/\/#REMOVE-POST-COMPILE[\s\S]*?\/\/#!REMOVE-POST-COMPILE/g,'');
-    fs.writeFileSync('modest.js', modestJs + savedModules);
+      // Take out everything that isn't needed from the modest object
+      
+      modestJs = modestJs.replace(/\/\/#REMOVE-POST-COMPILE[\s\S]*?\/\/#!REMOVE-POST-COMPILE/g,'');
+
+      // Write the saved modules and the modest object to modest.js
+
+      fs.writeFileSync('modest.js', modestJs + savedModules);
+    } 
   },
   compileFiles : function(callback){
     var files = fs.readdirSync('.');
@@ -143,7 +140,7 @@ ModestCompiler.prototype = {
       if(err)
         throw(err);
       else
-        this.createModestJs();
+        this.writeModestJs();
       callback(err);
     }.bind(this));
   }

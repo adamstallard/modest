@@ -8,6 +8,13 @@ var optimist = require('optimist');
 
 var ModestCompiler = require('./ModestCompiler');
 
+// This file contains various workarounds for optimist because
+//
+// * .alias() doesn't work as documented (doesn't combine options in argv)
+// * .string() doesn't work as documented (doesn't do anything)
+// * output is only displayed if showHelp() is executed first
+// * showHelp() only displays output if it is executed twice
+
 optimist.options({
   "j" : {
     alias : "jquery",
@@ -44,7 +51,7 @@ optimist.options({
 
 var argv = optimist.argv;
 
-if(argv.h || argv['?']){
+if(argv.h || argv['?'] || argv.help){
   optimist.showHelp() || optimist.showHelp();
   process.exit();
 }
@@ -62,9 +69,11 @@ function assertSingleValue(opt){
   }
 }
 
+[argv.j,argv.jquery].forEach(assertSingleValue);
+
 params = {
-  jqueryPath : argv.j,
-  quiet : argv.q,
+  jqueryPath : argv.j || argv.jquery,
+  quiet : argv.q || argv.quiet,
   previewScript : 'modest-preview.js'
 };
 
@@ -84,8 +93,8 @@ _.each(dirs, function(path){
     if(!params.quiet)
       console.log('entering ' + path);
     process.chdir(path);
-    fs.unlink(params.previewScript);
-    fs.link(__dirname + '/' + params.previewScript, params.previewScript);
+    fs.unlinkSync(params.previewScript);
+    fs.linkSync(__dirname + '/' + params.previewScript, params.previewScript);
     compiler.compileFiles(callback);
   });
 });
