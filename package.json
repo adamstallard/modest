@@ -1,6 +1,6 @@
 {
   "name" : "modest",
-  "version" : "1.16.0",
+  "version" : "1.17.0",
   "description" : "Create HTML modules (building blocks) that look like new HTML tags. Use modules to form other modules. Easily pass parameters from multiple sources to modules and inner modules. Use as a drop-in templating language to any web framework.",
   "keywords" : ["xhtml","html","semantic","template","templating","preview","modular","tags","modules","browser","web"],
   "author" : {
@@ -11,7 +11,8 @@
   "directories" : {
     "test" : "test"
   },
-  "bin" : "modest.js",
+  "main" : "modest.js",
+  "bin" : "modest-bin.js",
   "dependencies" : {
     "async" : "*",
     "jquery" : "*",
