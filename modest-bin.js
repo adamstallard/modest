@@ -79,7 +79,6 @@ if(_.isEmpty(dirs))
 params = {
   jqueryPath : argv.j || argv.jquery,
   quiet : argv.q || argv.quiet,
-  previewScript : 'modest-preview.js',
   dirs : dirs
 };
 

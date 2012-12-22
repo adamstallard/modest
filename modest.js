@@ -3,7 +3,12 @@ var _ = require('underscore');
 
 var ModestCompiler = require('./ModestCompiler');
 
+var defaults = {
+  previewScript : 'modest-preview.js'
+};
+
 function compile(params){
+  params = _.extend(defaults,params);
   var compiler = new ModestCompiler(params);
 
   var series = [];
@@ -32,6 +37,8 @@ function compile(params){
   });
 
 }
+
+compile.defaults 
 
 module.exports = {
   compile : compile,
