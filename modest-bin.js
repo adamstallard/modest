@@ -13,7 +13,7 @@ var modest = require('./modest');
 // * output is only displayed if showHelp() is executed first
 // * showHelp() only displays output if it is executed twice
 //
-// Remove the workarounds when as the above items are fixed
+// Remove the workarounds as the above items are fixed
 
 optimist.options({
   "j" : {
