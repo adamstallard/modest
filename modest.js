@@ -93,7 +93,8 @@ _.each(dirs, function(path){
     if(!params.quiet)
       console.log('entering ' + path);
     process.chdir(path);
-    fs.unlinkSync(params.previewScript);
+    if(fs.existsSync(params.previewScript))
+      fs.unlinkSync(params.previewScript);
     fs.linkSync(__dirname + '/' + params.previewScript, params.previewScript);
     compiler.compileFiles(callback);
   });
