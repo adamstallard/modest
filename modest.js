@@ -71,40 +71,48 @@ function assertSingleValue(opt){
 
 [argv.j,argv.jquery].forEach(assertSingleValue);
 
-params = {
-  jqueryPath : argv.j || argv.jquery,
-  quiet : argv.q || argv.quiet,
-  previewScript : 'modest-preview.js'
-};
-
-var compiler = new ModestCompiler(params);
 var dirs = argv._;
-var series = [];
-var origPath = process.cwd();
 
 if(_.isEmpty(dirs))
   dirs.push('.');
 
-// Compile each directory in series, so we can reuse the same compiler
+params = {
+  jqueryPath : argv.j || argv.jquery,
+  quiet : argv.q || argv.quiet,
+  previewScript : 'modest-preview.js',
+  dirs : dirs
+};
 
-_.each(dirs, function(path){
-  series.push(function(callback){
-    process.chdir(origPath);
-    if(!params.quiet)
-      console.log('entering ' + path);
-    process.chdir(path);
-    if(fs.existsSync(params.previewScript))
-      fs.unlinkSync(params.previewScript);
-    fs.linkSync(__dirname + '/' + params.previewScript, params.previewScript);
-    compiler.compileFiles(callback);
+compile(params);
+
+function compile(params){
+  var compiler = new ModestCompiler(params);
+
+  var series = [];
+  var origPath = process.cwd();
+
+  // Compile each directory in series, so we can reuse the same compiler
+
+  _.each(params.dirs, function(path){
+    series.push(function(callback){
+      process.chdir(origPath);
+      if(!params.quiet)
+        console.log('entering ' + path);
+      process.chdir(path);
+      if(fs.existsSync(params.previewScript))
+        fs.unlinkSync(params.previewScript);
+      fs.linkSync(__dirname + '/' + params.previewScript, params.previewScript);
+      compiler.compileFiles(callback);
+    });
   });
-});
 
-async.series(series,function(err){
-  if(err)
-    throw(err);
-  else
-    process.chdir(origPath);
-});
+  async.series(series,function(err){
+    if(err)
+      throw(err);
+    else
+      process.chdir(origPath);
+  });
 
+}
 
+module.exports.compile = compile;
