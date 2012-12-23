@@ -11,6 +11,12 @@ var _ = require('underscore');
 
 require('./modest-preview.js');
 
+// Default options
+
+ModestCompiler.options = {
+  previewScript : 'modest-preview.js'
+};
+
 // ModestCompiler(
 //  params: -- input parameters {
 //    quiet: [boolean] -- supress output
@@ -19,7 +25,8 @@ require('./modest-preview.js');
 //  }   
 // )
 function ModestCompiler(params){
-  this.params = params || {};
+  this.params = _.extend(ModestCompiler.options,params);
+  console.dir(this.params);
   this.scripts = [];
   if(this.params.jqueryPath)
     this.scripts.push(this.params.jqueryPath);
