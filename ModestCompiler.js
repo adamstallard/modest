@@ -9,6 +9,15 @@ var jsdom = require('jsdom');
 var async = require('async');
 var _ = require('underscore');
 
+require('./modest-preview.js');
+
+// ModestCompiler(
+//  params: -- input parameters {
+//    quiet: [boolean] -- supress output
+//    jqueryPath: [string] -- file or url location of jquery
+//    previewScript: [string] -- name of modest preview script to include
+//  }   
+// )
 function ModestCompiler(params){
   this.params = params || {};
   this.scripts = [];
@@ -16,8 +25,6 @@ function ModestCompiler(params){
     this.scripts.push(this.params.jqueryPath);
   else
     $ = require('jquery');
-  this.preview = './' + (this.params.previewScript || 'modest-preview.js');
-  require(this.preview);
   _.bindAll(this);
 }
 
@@ -108,7 +115,7 @@ ModestCompiler.prototype = {
 
     if(savedModules !== ''){
 
-      modestJs = fs.readFileSync(this.preview,'utf8');
+      modestJs = fs.readFileSync(this.params.previewScript,'utf8');
       
       // Take out everything that isn't needed from the modest object
       

@@ -3,9 +3,18 @@ var _ = require('underscore');
 
 var ModestCompiler = require('./ModestCompiler');
 
+// Default options
+
 compile.options = {
   previewScript : 'modest-preview.js'
 };
+
+// compile(
+//  params: -- instance parameters (extending function options) {
+//    previewScript : [string] -- What to name the preview script placed in each directory
+//    See ModestCompiler for more...
+//  }
+// ) 
 
 function compile(params){
   params = _.extend(compile.options,params);
@@ -24,7 +33,7 @@ function compile(params){
       process.chdir(path);
       if(fs.existsSync(params.previewScript))
         fs.unlinkSync(params.previewScript);
-      fs.linkSync(__dirname + '/' + params.previewScript, params.previewScript);
+      fs.linkSync(__dirname + '/modest-preview.js', params.previewScript);
       compiler.compileFiles(callback);
     });
   });
