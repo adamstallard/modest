@@ -4,7 +4,7 @@ var fs = require('fs');
 
 var _ = require('underscore');
 var optimist = require('optimist');
-var modest = require('./modest');
+var modest = require('../lib/modest');
 
 // This file contains various workarounds for optimist because
 //
