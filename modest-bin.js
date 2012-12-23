@@ -36,7 +36,7 @@ optimist.options({
   \n\
   The "modest" command does the following in each target directory:\n\
   \n\
-  1. Places a copy of "modest-preview.js" for generating previews.\n\
+  1. Places a copy of the preview script (default: "modest-preview.js") for generating previews.\n\
   2. Compiles all files ending with -pre (plus an optional extension). The output files have the\n\
       same names as the input files, but with the "-pre" removed.\n\
   3. Runs (and then removes) javascript in the "-pre" files having the "pre=true" attribute in their script tags.\n\
