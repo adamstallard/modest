@@ -4,7 +4,7 @@ var fs = require('fs');
 var vows = require('vows');
 var _ = require('underscore');
 
-var ModestCompiler = require('../ModestCompiler');
+var ModestCompiler = require('../lib/ModestCompiler');
 var normalize = ModestCompiler.normalize;
 
 var compilerTopics = {
@@ -57,7 +57,7 @@ _.each(testFiles,function(f){
   };
 });
 
-module.exports.ModestCompiler = vows.describe('ModestCompiler')
+module.exports.suite = vows.describe('ModestCompiler')
 .addBatch({
   "Setup: " : setupTopics
 })
