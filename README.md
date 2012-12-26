@@ -27,6 +27,8 @@ I created it because I got tired of maintaining chunks of HTML in my javascript 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
 
+If you only want to play with modest in the browser, just download [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js)
+
 ###Report Bugs
 https://github.com/goalzen/modest/issues
 
