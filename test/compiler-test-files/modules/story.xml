@@ -1,4 +1,4 @@
 <div>
-<h2 class="title" uses="name"/>
-<p class="text">The story of <span uses="name"/>.</p>
+  <h2 class="title" uses="name"/>
+  <p class="text">The story of <span uses="name"/>.</p>
 </div>
