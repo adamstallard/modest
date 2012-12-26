@@ -22,12 +22,12 @@ I created it because I got tired of maintaining chunks of HTML in my javascript 
 * [Full Documentation](https://github.com/goalzen/modest/wiki/Documentation)
 * [Examples](https://github.com/goalzen/modest/wiki/Examples)
 
-###Installation[_*_](#installation-notes)
+###Installation[_*_](#prerequisites)
 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
 
-If you only want to play with modest in the browser, just download [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js)
+If you only want to play with modest in the browser, just download [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js).
 
 ###Report Bugs
 https://github.com/goalzen/modest/issues
@@ -64,13 +64,20 @@ var out = modest.render('contact',contact);
 This is an easier syntax than nested templates or partials in other languages.
   * [See Documentation and Example](https://github.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters)
 
-###Installation Notes<a id="installation-notes"/>
+###Prerequisites<a id="prerequisites"/>
 
-Modest depends on [node.js](https://github.com/joyent/node), but you don't need to use node.js in any other part of your project. 
+[modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js) runs in the browser, and depends on [jquery](http://jquery.com/download/).
 
-Just [install node.js](http://nodejs.org/#download) on your development machine and use npm (node package manager) to install modest.
-Then you can run ``modest`` from the command line.
-You don't need to download any of the files here.
+The modest compiler has the following prerequisites:
+
+* [node.js](http://nodejs.org/download/)
+ * For windows users, only the 32-bit version of node is currently supported
+* Python
+* A C++ compiler
+ * gcc for linux users
+ * visual studio 2010 express (free) for windows users
+
+See [the installation instructions for node-gyp](https://github.com/TooTallNate/node-gyp#installation) for more information.
 
 ###Usage
 
