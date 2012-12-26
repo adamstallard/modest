@@ -39,7 +39,7 @@ https://github.com/goalzen/modest/issues
 <div>
   <contact>
     <name>Casey Jones</name>
-    <phone>123-456-7890</phone>
+    <cell>123-456-7890</cell>
   </contact>
 </div>
 ```
