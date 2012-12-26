@@ -6,6 +6,19 @@ var opts = {
   reporter : spec
 };
 
+var failedCount = 0;
+
+function addFailures(results){
+  if(results){
+    failedCount += results.broken;
+    failedCount += results.errored;
+  }
+}
+
 // all tests
 
-require('./ModestCompilerTests').suite.run(opts);
+var suite = require('./ModestCompilerTests').suite.run(opts,addFailures);
+
+process.on('exit', function(){
+  process.exit(failedCount);
+});
