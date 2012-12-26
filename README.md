@@ -74,8 +74,6 @@ The modest compiler has the following prerequisites:
  * For windows users, only the 32-bit version of node is currently supported
 * Python
 * A C++ compiler
- * gcc for linux users
- * visual studio 2010 express (free) for windows users
 
 See [the installation instructions for node-gyp](https://github.com/TooTallNate/node-gyp#installation) for more information.
 
