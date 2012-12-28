@@ -1,6 +1,6 @@
 {
   "name" : "modest",
-  "version" : "1.17.9",
+  "version" : "1.17.10",
   "description" : "Create HTML modules (building blocks) that look like new HTML tags. Use modules to form other modules. Easily pass parameters from multiple sources to modules and inner modules. Use as a drop-in templating language to any web framework.",
   "keywords" : ["xhtml","html","semantic","template","templating","preview","modular","tags","modules","browser","web"],
   "author" : {
