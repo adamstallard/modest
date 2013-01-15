@@ -22,7 +22,7 @@ optimist.options({
   },
   "q" : {
     alias : "quiet",
-    describe : "Supress output."
+    describe : "Suppress output."
   }
 })
 .alias('?','help')
