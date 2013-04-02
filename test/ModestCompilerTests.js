@@ -37,8 +37,7 @@ _.each(testFiles,function(f){
   }
   setupTopics['deleting output file ' + outFile] = {
     topic : function(){
-      fs.unlinkSync(outFile);
-      return null;
+      fs.unlink(outFile, this.callback);
     },
     "should result in the file being gone from the directory" : function(){
       assert(!_.contains(fs.readdirSync('.'),outFile),'file exists');
@@ -46,10 +45,9 @@ _.each(testFiles,function(f){
   };
   compilerTopics[topicName] = {
     topic : function(mc){
-      mc.compileFile(testFile,this.callback);
+      mc.compileFile(testFile, this.callback);
     },
-    "should produce the expected output" : function(e){
-      assert.ifError(e);
+    "should produce the expected output" : function(){
       var output = fs.readFileSync(outFile,'utf8');
       var key = ModestCompiler.normalize(fs.readFileSync(keyFile,'utf8'));
       assert(output == key, 'expected:\n\t' + key + '\n\tgot:\n\t' + output);
@@ -57,10 +55,10 @@ _.each(testFiles,function(f){
   };
 });
 
-module.exports.suite = vows.describe('ModestCompiler')
+vows.describe('ModestCompiler')
 .addBatch({
   "Setup: " : setupTopics
 })
 .addBatch({
   "ModestCompiler" : compilerTopics
-});
+}).export(module);

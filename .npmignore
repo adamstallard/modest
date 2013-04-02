@@ -2,3 +2,9 @@ test
 nbproject
 \.hgignore
 \.gitignore
+\.idea
+\.hg
+\.hgignore
+Gruntfile.js
+\.travis.yml
+\.jshintrc
