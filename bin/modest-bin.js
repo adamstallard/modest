@@ -76,7 +76,7 @@ var dirs = argv._;
 if(_.isEmpty(dirs))
   dirs.push('.');
 
-params = {
+var params = {
   jqueryPath : argv.j || argv.jquery,
   quiet : argv.q || argv.quiet,
   dirs : dirs
