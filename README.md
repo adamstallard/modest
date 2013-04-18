@@ -71,7 +71,6 @@ This is an easier syntax than nested templates or partials in other languages.
 The modest compiler has the following prerequisites:
 
 * [node.js](http://nodejs.org/download/)
- * For windows users, only the 32-bit version of node is currently supported
 * Python
 * A C++ compiler
 
