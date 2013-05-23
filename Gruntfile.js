@@ -35,6 +35,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-vows-runner');
 
   // default task
-  grunt.registerTask('default', ['vows']);
+  grunt.registerTask('default', ['jshint', 'vows']);
 
 };

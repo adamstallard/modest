@@ -1,3 +1,5 @@
+'use strict';
+
 var assert = require('assert');
 var fs = require('fs');
 
@@ -5,7 +7,6 @@ var vows = require('vows');
 var _ = require('underscore');
 
 var ModestCompiler = require('../lib/ModestCompiler');
-var normalize = ModestCompiler.normalize;
 
 var compilerTopics = {
   topic : new ModestCompiler({quiet : true})
