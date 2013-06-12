@@ -5,6 +5,7 @@ var fs = require('fs');
 
 var vows = require('vows');
 var _ = require('underscore');
+var expect = require('chai').expect;
 
 var ModestCompiler = require('../lib/ModestCompiler');
 
@@ -40,8 +41,8 @@ _.each(testFiles,function(f){
     topic : function(){
       fs.unlink(outFile, this.callback);
     },
-    "should result in the file being gone from the directory" : function(){
-      assert(!_.contains(fs.readdirSync('.'),outFile),'file exists');
+    "should result in the file being gone from the directory" : function(error, dummy){
+      expect(fs.readdirSync('.')).to.not.contain(outFile);
     }
   };
   compilerTopics[topicName] = {

@@ -7,7 +7,7 @@
   "node" : true,
   "camelcase" : true,
   "nonew" : true,
-  "unused" : true,
+  "unused" : "vars",
   "trailing" : true,
   "multistr" : true,
   "expr" : true
