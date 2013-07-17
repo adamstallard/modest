@@ -3,4 +3,4 @@ var cow = {
   "url" : "http://en.wikipedia.org/wiki/Cattle"
 };
 
-$(document.body).append(modest.render('animal',cow));
+$(document.body).append(modest.render('animal', cow));

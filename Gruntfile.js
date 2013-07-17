@@ -22,10 +22,16 @@ module.exports = function(grunt) {
         reporter : "spec"
       },
       compiler : {
-        src : ['test/ModestCompilerTests.js'],
-        options : {
-          disabled : false
-        }
+        src : ['test/CompilerTest.js']
+      },
+      commandLine : {
+        src : ['test/CommandLineTest.js']
+      },
+      parallel : {
+        src : ['test/ParallelTest.js']
+      },
+      serial : {
+        src : ['test/SerialTest.js']
       }
     }
   });

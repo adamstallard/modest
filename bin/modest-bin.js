@@ -2,41 +2,25 @@
 
 'use strict';
 
-var _ = require('underscore');
-var optimist = require('optimist');
+var _ = require('lodash');
+var commander = require('commander');
 var modest = require('../lib/modest');
 
-// This file contains various workarounds for optimist because
-//
-// * .alias() doesn't work as documented (doesn't combine options in argv)
-// * .string() doesn't work as documented (doesn't do anything)
-// * output is only displayed if showHelp() is executed first
-// * showHelp() only displays output if it is executed twice
-//
-// Remove the workarounds as the above items are fixed
+commander
+  .option('-j, --jquery <path>', 'Path to (or URL of) jquery.  If omitted, modest will use the npm jquery module.')
+  .option('-q, --quiet', 'Suppress output.')
+  .option('--print-options', 'Print supplied options and exit (for testing/debugging).')
+  .option('--print-args', 'Print supplied arguments and exit (for testing/debugging).')
+  .usage('modest [options] <directories>');
 
-optimist.options({
-  "j" : {
-    alias : "jquery",
-    describe : "Path to (or URL of) jquery.  If omitted, modest will use the npm jquery module."
-  },
-  "q" : {
-    alias : "quiet",
-    describe : "Suppress output."
-  }
-})
-.alias('?','help')
-.alias('h','help')
-.describe('h','Show this help message.')
-.usage(
-  'Usage: modest [options] <directories>\n\
-  \n\
-  Modest is a utilty for previewing and compiling modular templates in html and making them \n\
+commander.on('--help', function(){
+  console.log('\
+  Modest is a utility for previewing and compiling modular templates in html and making them \n\
   available to javascript.\n\
   \n\
   The "modest" command does the following in each target directory:\n\
   \n\
-  1. Places a copy of the preview script (default: "modest-preview.js") for generating previews.\n\
+  1. Places a copy of "modest-preview.js" for generating previews.\n\
   2. Compiles all files ending with -pre (plus an optional extension). The output files have the\n\
       same names as the input files, but with the "-pre" removed.\n\
   3. Runs (and then removes) javascript in the "-pre" files having the "pre=true" attribute in their script tags.\n\
@@ -47,39 +31,40 @@ optimist.options({
   If no directories are supplied, the current directory is used.\n\
   \n\
   See "https://github.com/goalzen/modest/wiki/Documentation" for documentation.\n'
-);
+  );
+});
 
-var argv = optimist.argv;
+commander.parse(process.argv);
 
-if(argv.h || argv['?'] || argv.help){
-  optimist.showHelp() || optimist.showHelp();
-  process.exit();
+if(commander.printOptions){
+  var options = _.clone(commander);
+  delete options.options;
+  delete options.commands;
+  delete options._args;
+  delete options._name;
+  delete options.Command;
+  delete options.Option;
+  delete options._events;
+  delete options._usage;
+  delete options.rawArgs;
+  delete options.args;
+  console.log(options);
 }
-
-function assertSingleValue(opt){
-  if(_.isBoolean(opt)){
-    optimist.showHelp(console.log);
-    console.error('Error: Option had no value, or no space between option and value');
-    process.exit(1);
-  }
-  if(_.isArray(opt)){
-    optimist.showHelp(console.log);
-    console.error('Error: Multiple options of the same type');
-    process.exit(2);
-  }
+else if(commander.printArgs){
+  console.log(commander.args);
 }
+else {
+  var dirs = commander.args;
 
-[argv.j,argv.jquery].forEach(assertSingleValue);
+  if(_.isEmpty(dirs)){
+    dirs.push('.');
+  }
 
-var dirs = argv._;
+  var params = {
+    jqueryPath : commander.jquery,
+    quiet : commander.quiet,
+    dirs : dirs
+  };
 
-if(_.isEmpty(dirs))
-  dirs.push('.');
-
-var params = {
-  jqueryPath : argv.j || argv.jquery,
-  quiet : argv.q || argv.quiet,
-  dirs : dirs
-};
-
-modest.compile(params);
+  modest.compile(params);
+}
