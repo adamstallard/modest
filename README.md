@@ -1,5 +1,5 @@
-# Modest
-## Reuse HTML.
+# Reuse HTML
+### with Modest
 
 [![Build Status](https://travis-ci.org/goalzen/modest.png)](https://travis-ci.org/goalzen/modest)
 
