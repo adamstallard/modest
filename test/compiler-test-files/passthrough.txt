@@ -1,1 +1,1 @@
-a test with a passthrough parameter
+a passthrough parameter

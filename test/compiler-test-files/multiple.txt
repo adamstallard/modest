@@ -1,1 +1,1 @@
-a test with multiple targets for the same parameter
+multiple targets for the same parameter

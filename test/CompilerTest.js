@@ -35,7 +35,7 @@ _.each(testFiles, function(f){
   try{
     description = fs.readFileSync(basePath + descFile,'utf8');
     if(description)
-      topicName = 'compiling ' + description;
+      topicName = 'compiling a test with ' + description;
   } catch(e){
   }
   setupTopics['deleting output file ' + outFile] = {

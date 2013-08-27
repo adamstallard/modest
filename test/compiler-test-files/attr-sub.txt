@@ -1,1 +1,1 @@
-a test with attribute substitution
+attribute substitution

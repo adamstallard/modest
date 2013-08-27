@@ -1,1 +1,1 @@
-a test using a module with comments
+comments

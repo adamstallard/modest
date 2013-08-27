@@ -1,1 +1,1 @@
-a test with a parameter in the module root
+a parameter in the module root

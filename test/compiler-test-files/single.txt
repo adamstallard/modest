@@ -1,1 +1,1 @@
-a basic test with a single module
+a single module

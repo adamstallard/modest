@@ -1,22 +1,34 @@
 ##Modest 
-( __mo__dular __des__ign __t__emplates )
+#Reuse HTML
 
 [![Build Status](https://travis-ci.org/goalzen/modest.png)](https://travis-ci.org/goalzen/modest)
 
-Web templating engine for stand-alone use or with the framework of your choice ([backbone](https://github.com/documentcloud/backbone), [meteor](https://github.com/meteor/meteor), etc.)
+```html
+<html>
+  <body>
+    <page-header/>
+    <content>
+      <news-article demo>
+        <author>John Doe</author>
+        <title>Test</title>
+        <body><lorem/></body>
+      </news-article>
+    </content>
+    <page-footer/>
+  </body>
+</html>
+```
 
-###Motivation
-
-Two things set modest apart from other templating languages:
-
-1.  The templates look like HTML
-2.  It is easy to build larger templates out of smaller ones
-
-It is specifically adapted for the web (javascript and HTML).
-
-It strives for a clean separation between languages:  it looks like javascript when you're working in javascript, and HTML when you're working in HTML.  This keeps design and coding roles separate.
-
-I created it because I got tired of maintaining chunks of HTML in my javascript code.
+###Features
+1.  Templates look like HTML
+2.  Easily build large templates out of small ones
+3.  Clean separation of languages: javascript is javascript and HTML is HTML.  Get rid of HTML snippets inside javascript.
+4.  Less logic than "logicless" templates.  It doesn't turn HTML into a programming language.
+5.  Use stand-alone or with a framework, e.g. [backbone](https://github.com/documentcloud/backbone),
+[meteor](https://github.com/meteor/meteor, etc.
+6.  Use "demo" elements to preview a design--they go away when compiled for production.
+7.  Pass-through parameters are easier than "partials." [Documentation and Example](https://github
+.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters)
 
 ###Documentation & Examples
 * [Full Documentation](https://github.com/goalzen/modest/wiki/Documentation)
@@ -24,45 +36,27 @@ I created it because I got tired of maintaining chunks of HTML in my javascript 
 
 ###Installation[_*_](#prerequisites)
 
+Preview/Demo Use:
+
+Download [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js).
+
+Production Use:
+
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
 
-If you only want to play with modest in the browser, just download [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js).
+###Command Line
+
+```bash
+modest
+```
+
+###Grunt
+
+[grunt-modest](https://github.com/goalzen/grunt-modest?source=cc)
 
 ###Report Bugs
 https://github.com/goalzen/modest/issues
-
-###What Can I Do With It?
-* Create HTML modules (building blocks) that can be used like regular HTML.
-
-```xml
-<div>
-  <contact>
-    <name>Casey Jones</name>
-    <cell>123-456-7890</cell>
-  </contact>
-</div>
-```
-* Create templates that look like html and can be previewed in a browser or IDE.
-* Supply data with semantic tags in html and javscript objects in javascript for a clean separation of languages.
-
-```javascript
-var contact = {
-  name : "Casey Jones",
-  cell : "123-456-7890"
-};
-var out = modest.render('contact',contact);
-```
-* Or supply data from local or remote files
-
-```xml
-<contact data="bob.json"/>
-<contact remotedata="http://websitedata/contacts/mary"/>
-```
-* Compose new modules from existing modules and/or html.
-* Pass parameters to inner modules using [passthrough parameters](https://github.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters).
-This is an easier syntax than nested templates or partials in other languages.
-  * [See Documentation and Example](https://github.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters)
 
 ###Prerequisites<a id="prerequisites"/>
 
@@ -75,13 +69,6 @@ The modest compiler has the following prerequisites:
 * A C++ compiler
 
 See [the installation instructions for node-gyp](https://github.com/TooTallNate/node-gyp#installation) for more information.
-
-###Usage
-
-From a command prompt, type
-```bash
-modest --help
-```
 
 ###Development How-To
 

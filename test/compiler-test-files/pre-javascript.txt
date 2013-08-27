@@ -1,1 +1,1 @@
-a test with a pre-processed javascript file
+a pre-processed javascript file

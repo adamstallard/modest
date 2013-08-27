@@ -1,1 +1,1 @@
-a test with a module inside the parameter of another module
+a module inside the parameter of another module

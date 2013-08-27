@@ -1,1 +1,1 @@
-a test with element attributes that should be preserved
+element attributes that should be preserved
