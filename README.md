@@ -39,7 +39,7 @@
 ### Preview/Demo[_*_](#prerequisites)
 
 1. Download [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js).
-2. Put ``<script src="modest-preview.js"></script>`` in the ``head`` of your html file.
+2. Put ``<script src="modest-preview.js"></script>`` in the ``head`` of your html file (after jquery).
 
 ### Compile to Production[_*_](#prerequisites)
 
