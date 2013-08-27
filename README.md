@@ -25,7 +25,7 @@
 3.  Clean separation of languages: javascript is javascript and HTML is HTML.  Get rid of HTML snippets inside javascript.
 4.  Less logic than "logicless" templates.  It doesn't turn HTML into a programming language.
 5.  Use stand-alone or with a framework, e.g. [backbone](https://github.com/documentcloud/backbone),
-[meteor](https://github.com/meteor/meteor, etc.
+[meteor](https://github.com/meteor/meteor), etc.
 6.  Use "demo" elements to preview a design--they go away when compiled for production.
 7.  Pass-through parameters are easier than "partials." [Documentation and Example](https://github
 .com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters)
@@ -36,24 +36,17 @@
 
 ###Installation[_*_](#prerequisites)
 
-Preview/Demo Use:
+#### Preview/Demo
 
 Download [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js).
 
-Production Use:
+#### Compile to Production
 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
-
-###Command Line
-
-```bash
-modest
-```
-
-###Grunt
-
-[grunt-modest](https://github.com/goalzen/grunt-modest?source=cc)
+3a. ``modest``
+--OR--
+3b. [grunt-modest](https://github.com/goalzen/grunt-modest?source=cc)
 
 ###Report Bugs
 https://github.com/goalzen/modest/issues
@@ -62,7 +55,7 @@ https://github.com/goalzen/modest/issues
 
 [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js) runs in the browser, and depends on [jquery](http://jquery.com/download/).
 
-The modest compiler has the following prerequisites:
+To compile to production, you need:
 
 * [node.js](http://nodejs.org/download/)
 * Python
