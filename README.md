@@ -43,9 +43,9 @@ Download [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/mo
 
 1. [Install node.js](http://nodejs.org/#download)
 2. ``npm install -g modest``
-3a. ``modest``
+3. a. ``modest``
 --OR--
-3b. [grunt-modest](https://github.com/goalzen/grunt-modest?source=cc)
+3. b. [grunt-modest](https://github.com/goalzen/grunt-modest?source=cc)
 
 ###Report Bugs
 https://github.com/goalzen/modest/issues
