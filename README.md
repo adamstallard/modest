@@ -13,13 +13,13 @@
     <include>lorem</include>
   <body>
     <page-header/>
-    <content>
-      <news-article demo>
-        <author>Jane Doe</author>
-        <title>Test</title>
-        <body><lorem/></body>
-      </news-article>
-    </content>
+      <content>
+        <news-article demo>
+          <author>Jane Doe</author>
+          <title>Test</title>
+          <body><lorem/></body>
+        </news-article>
+      </content>
     <page-footer/>
   </body>
 </html>
