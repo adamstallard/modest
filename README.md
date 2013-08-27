@@ -5,6 +5,12 @@
 
 ```html
 <html>
+  <head>
+    <include>news-article</include>
+    <include>page-header</include>
+    <include>page-footer</include>
+    <include>content</include>
+    <include>lorem</include>
   <body>
     <page-header/>
     <content>
