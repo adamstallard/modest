@@ -11,6 +11,7 @@
     <include>page-footer</include>
     <include>content</include>
     <include>lorem</include>
+  </head>
   <body>
     <page-header/>
       <content>
