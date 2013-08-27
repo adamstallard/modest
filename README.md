@@ -9,18 +9,18 @@
     <include>news-article</include>
     <include>page-header</include>
     <include>page-footer</include>
-    <include>content</include>
+    <include>news-page</include>
     <include>lorem</include>
   </head>
   <body>
     <page-header/>
-      <content>
+      <news-page>
         <news-article demo>
           <author>Jane Doe</author>
           <title>Test</title>
           <body><lorem/></body>
         </news-article>
-      </content>
+      </news-page>
     <page-footer/>
   </body>
 </html>
