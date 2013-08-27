@@ -36,20 +36,21 @@
 6.  Use "demo" elements to preview a design--they go away when compiled for production.
 7.  Pass-through parameters are easier than "partials." [Documentation and Example](https://github.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters)
 
-### Documentation & Examples
-* [Full Documentation](https://github.com/goalzen/modest/wiki/Documentation)
-* [Examples](https://github.com/goalzen/modest/wiki/Examples)
-
 ### Preview/Demo[_*_](#prerequisites)
 
-Download [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js).
+1. Download [modest-preview.js](https://raw.github.com/goalzen/modest/master/lib/modest-preview.js).
+2. Put ``<script src="modest-preview.js"></script>`` in the ``head`` of your html file.
 
 ### Compile to Production[_*_](#prerequisites)
 
 1. [Install node.js](http://nodejs.org/#download) (once)
 2. ``npm install -g modest`` (once)
 3. Go into your project directory
-4. type ``modest`` OR use [grunt-modest](https://github.com/goalzen/grunt-modest?source=cc)
+4. type ``modest`` OR use [grunt-modest](https://github.com/goalzen/grunt-modest)
+
+### Documentation & Examples
+* [Full Documentation](https://github.com/goalzen/modest/wiki/Documentation)
+* [Examples](https://github.com/goalzen/modest/wiki/Examples)
 
 ### Report Bugs
 https://github.com/goalzen/modest/issues
