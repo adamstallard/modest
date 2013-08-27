@@ -27,8 +27,7 @@
 5.  Use stand-alone or with a framework, e.g. [backbone](https://github.com/documentcloud/backbone),
 [meteor](https://github.com/meteor/meteor), etc.
 6.  Use "demo" elements to preview a design--they go away when compiled for production.
-7.  Pass-through parameters are easier than "partials." [Documentation and Example](https://github
-.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters)
+7.  Pass-through parameters are easier than "partials." [Documentation and Example](https://github.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters)
 
 ###Documentation & Examples
 * [Full Documentation](https://github.com/goalzen/modest/wiki/Documentation)
