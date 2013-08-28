@@ -26,6 +26,10 @@
 </html>
 ```
 
+### [Documentation](https://github.com/goalzen/modest/wiki/Documentation)
+### [Examples](https://github.com/goalzen/modest/wiki/Modest-Code-Examples)
+
+
 ### Features
 1.  Templates look like HTML
 2.  Easily build large templates out of small ones
@@ -49,8 +53,7 @@
 4. type ``modest`` OR use [grunt-modest](https://github.com/goalzen/grunt-modest)
 
 ### Documentation & Examples
-* [Full Documentation](https://github.com/goalzen/modest/wiki/Documentation)
-* [Examples](https://github.com/goalzen/modest/wiki/Examples)
+
 
 ### Report Bugs
 https://github.com/goalzen/modest/issues
