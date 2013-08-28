@@ -1,1 +1,4 @@
-^node_modules$
+syntax: glob
+
+node_modules
+.idea
