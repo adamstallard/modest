@@ -26,10 +26,6 @@
 </html>
 ```
 
-### [Documentation](https://github.com/goalzen/modest/wiki/Documentation)
-### [Examples](https://github.com/goalzen/modest/wiki/Modest-Code-Examples)
-
-
 ### Features
 1.  Templates look like HTML
 2.  Easily build large templates out of small ones
@@ -39,6 +35,9 @@
 [meteor](https://github.com/meteor/meteor), etc.
 6.  Use "demo" elements to preview a design--they go away when compiled for production.
 7.  Pass-through parameters are easier than "partials." [Documentation and Example](https://github.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters)
+
+### [Documentation](https://github.com/goalzen/modest/wiki/Documentation)
+### [Examples](https://github.com/goalzen/modest/wiki/Modest-Code-Examples)
 
 ### Preview/Demo[_*_](#prerequisites)
 
@@ -51,9 +50,6 @@
 2. ``npm install -g modest`` (once)
 3. Go into your project directory
 4. type ``modest`` OR use [grunt-modest](https://github.com/goalzen/grunt-modest)
-
-### Documentation & Examples
-
 
 ### Report Bugs
 https://github.com/goalzen/modest/issues
