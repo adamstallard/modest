@@ -37,7 +37,7 @@
 7.  Pass-through parameters are easier than "partials." [Documentation and Example](https://github.com/goalzen/modest/wiki/Documentation#wiki-passthrough-parameters)
 
 ### [Documentation](https://github.com/goalzen/modest/wiki/Documentation)
-### [Examples](https://github.com/goalzen/modest/wiki/Modest-Code-Examples)
+### [Examples](https://github.com/goalzen/modest/wiki/Code-Examples)
 
 ### Preview/Demo[_*_](#prerequisites)
 
