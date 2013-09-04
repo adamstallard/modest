@@ -1,0 +1,1 @@
+check that a doctype tag is preserved
